@@ -1,0 +1,17 @@
+# Node
+**/node_modules/
+**/dist/
+**/build/
+**/.vite/
+
+# OS
+.DS_Store
+
+# OpenClaw (never commit real credentials)
+# (We only commit backups/openclaw.redacted.json)
+**/openclaw.json
+**/*allowFrom.json
+**/*pairing.json
+
+# DB journaling
+**/*.db-journal
