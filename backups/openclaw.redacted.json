@@ -12,6 +12,11 @@
       },
       "model": {
         "primary": "openai-codex/gpt-5.2"
+      },
+      "models": {
+        "openai-codex/gpt-5.2": {
+          "alias": "gpt-5.2"
+        }
       }
     }
   },
@@ -21,6 +26,12 @@
   },
   "messages": {
     "ackReactionScope": "group-mentions"
+  },
+  "browser": {
+    "enabled": true,
+    "headless": true,
+    "noSandbox": true,
+    "executablePath": "/opt/google/chrome/chrome"
   },
   "gateway": {
     "mode": "local",
