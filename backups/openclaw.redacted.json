@@ -1,53 +1,24 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.1.30",
-    "lastTouchedAt": "2026-02-02T01:52:28.415Z"
+    "lastTouchedAt": "2026-02-02T18:21:41.950Z"
   },
-  "agents": {
-    "defaults": {
-      "workspace": "/home/lejandro/.openclaw/workspace",
-      "maxConcurrent": 4,
-      "subagents": {
-        "maxConcurrent": 8
-      },
-      "model": {
-        "primary": "google/gemini-3-flash-preview"
-      },
-      "models": {
-        "openai-codex/gpt-5.2": {
-          "alias": "gpt-5.2"
-        },
-        "google/gemini-3-flash-preview": {
-          "alias": "gemini-flash"
-        }
-      }
+  "env": {
+    "vars": {
+      "GEMINI_API_KEY": "AIzaSyBOwPYJQVyZNjMH7bRJfCqTbr_toD3QQgI"
     }
   },
-  "commands": {
-    "native": "auto",
-    "nativeSkills": "auto"
-  },
-  "messages": {
-    "ackReactionScope": "group-mentions"
+  "wizard": {
+    "lastRunAt": "2026-02-02T18:21:41.930Z",
+    "lastRunVersion": "2026.1.30",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
   },
   "browser": {
     "enabled": true,
+    "executablePath": "/opt/google/chrome/chrome",
     "headless": true,
-    "noSandbox": true,
-    "executablePath": "/opt/google/chrome/chrome"
-  },
-  "gateway": {
-    "mode": "local",
-    "auth": {
-      "mode": "token",
-      "token": "110d…TED) (REDACTED)"
-    },
-    "port": 18789,
-    "bind": "loopback",
-    "tailscale": {
-      "mode": "off",
-      "resetOnExit": false
-    }
+    "noSandbox": true
   },
   "auth": {
     "profiles": {
@@ -66,28 +37,33 @@
       ]
     }
   },
-  "plugins": {
-    "entries": {
-      "telegram": {
-        "enabled": true
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai-codex/gpt-5.2"
+      },
+      "models": {
+        "openai-codex/gpt-5.2": {
+          "alias": "gpt-5.2"
+        },
+        "google/gemini-3-flash-preview": {
+          "alias": "gemini-flash"
+        },
+        "openai-codex/gpt-5.1": {}
+      },
+      "workspace": "/home/lejandro/.openclaw/workspace",
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
       }
     }
   },
-  "channels": {
-    "telegram": {
-      "enabled": true,
-      "botToken": "8224…j4D0 (REDACTED)"
-    }
+  "messages": {
+    "ackReactionScope": "group-mentions"
   },
-  "skills": {
-    "install": {
-      "nodeManager": "npm"
-    },
-    "entries": {
-      "nano-banana-pro": {
-        "apiKey": "AIza…TED) (REDACTED)"
-      }
-    }
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
   },
   "hooks": {
     "internal": {
@@ -105,15 +81,43 @@
       }
     }
   },
-  "wizard": {
-    "lastRunAt": "2026-02-02T01:52:28.388Z",
-    "lastRunVersion": "2026.1.30",
-    "lastRunCommand": "onboard",
-    "lastRunMode": "local"
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8224…j4D0 (REDACTED)",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
   },
-  "env": {
-    "vars": {
-      "GEMINI_API_KEY": "AIzaSyBOwPYJQVyZNjMH7bRJfCqTbr_toD3QQgI"
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "110d…TED) (REDACTED)"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "nano-banana-pro": {
+        "apiKey": "AIza…TED) (REDACTED)"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
     }
   }
 }
