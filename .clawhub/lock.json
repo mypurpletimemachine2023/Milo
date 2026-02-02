@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "openclaw-security-auditor": {
+      "version": "1.0.0",
+      "installedAt": 1770004563906
+    },
+    "config-guardian": {
+      "version": "1.0.0",
+      "installedAt": 1770004566884
+    }
+  }
+}
