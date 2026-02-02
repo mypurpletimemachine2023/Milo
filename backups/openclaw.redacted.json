@@ -11,11 +11,14 @@
         "maxConcurrent": 8
       },
       "model": {
-        "primary": "openai-codex/gpt-5.2"
+        "primary": "google/gemini-3-flash-preview"
       },
       "models": {
         "openai-codex/gpt-5.2": {
           "alias": "gpt-5.2"
+        },
+        "google/gemini-3-flash-preview": {
+          "alias": "gemini-flash"
         }
       }
     }
@@ -51,7 +54,16 @@
       "openai-codex:default": {
         "provider": "openai-codex",
         "mode": "oauth"
+      },
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
       }
+    },
+    "order": {
+      "google": [
+        "google:default"
+      ]
     }
   },
   "plugins": {
@@ -98,5 +110,10 @@
     "lastRunVersion": "2026.1.30",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
+  },
+  "env": {
+    "vars": {
+      "GEMINI_API_KEY": "AIzaSyBOwPYJQVyZNjMH7bRJfCqTbr_toD3QQgI"
+    }
   }
 }
