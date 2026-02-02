@@ -52,7 +52,16 @@ const COLUMN_TO_STATUS: Record<(typeof LOCKSMITH_COLUMNS)[number], Job["status"]
 
 function laneFor(job: Job): (typeof LOCKSMITH_SWIMLANES)[number] {
   if (job.source === "contract" && job.contractAccount?.accountName) {
-    return `Contract Work: ${job.contractAccount.accountName}` as any;
+    switch (job.contractAccount.accountName) {
+      case "OCU":
+        return "Contract Work: OCU";
+      case "BASS":
+        return "Contract Work: BASS";
+      case "EVO":
+        return "Contract Work: EVO";
+      case "Academy":
+        return "Contract Work: Academy";
+    }
   }
   // v0 heuristic: map by jobType
   if (job.jobType === "commercial") return "Commercial";
@@ -170,8 +179,9 @@ export default function App() {
     try {
       const data = await api<{ jobs: Job[] }>("/api/jobs");
       setJobs(data.jobs);
-    } catch (e: any) {
-      setError(e?.message ?? String(e));
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : String(e);
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -202,32 +212,52 @@ export default function App() {
     setJobs((prev) => prev.map((j) => (j.id === jobId ? { ...j, status } : j)));
     try {
       await api(`/api/jobs/${jobId}`, { method: "PATCH", body: JSON.stringify({ status }) });
-    } catch (e) {
+    } catch {
       // rollback by refresh
       await refresh();
     }
   }
 
-  async function quickAdd(kind: "contract" | "organic") {
-    const title = prompt("Job title/site (short):") ?? "";
-    if (!title.trim()) return;
+  type Source = Job["source"];
+  type JobType = Job["jobType"];
+  type ContractName = "OCU" | "BASS" | "EVO" | "Academy";
 
-    const jobType = (prompt("jobType? commercial | residential | automotive | safe", "commercial") ?? "commercial") as any;
-    const contractAccountName =
-      kind === "contract"
-        ? ((prompt("Contract account? OCU | BASS | EVO | Academy", "OCU") ?? "OCU") as any)
-        : undefined;
+  const [modalOpen, setModalOpen] = useState(false);
+  const [formTitle, setFormTitle] = useState("");
+  const [formNotes, setFormNotes] = useState("");
+  const [formJobType, setFormJobType] = useState<JobType>("commercial");
+  const [formSource, setFormSource] = useState<Source>("organic");
+  const [formContractAccount, setFormContractAccount] = useState<ContractName>("OCU");
+  const [saving, setSaving] = useState(false);
 
-    await api("/api/jobs", {
-      method: "POST",
-      body: JSON.stringify({
-        title,
-        jobType,
-        source: kind,
-        contractAccountName,
-      }),
-    });
-    await refresh();
+  function openNewJob(source: Source) {
+    setFormTitle("");
+    setFormNotes("");
+    setFormJobType("commercial");
+    setFormSource(source);
+    setFormContractAccount("OCU");
+    setModalOpen(true);
+  }
+
+  async function submitNewJob() {
+    if (!formTitle.trim()) return;
+    setSaving(true);
+    try {
+      await api("/api/jobs", {
+        method: "POST",
+        body: JSON.stringify({
+          title: formTitle.trim(),
+          notes: formNotes.trim() ? formNotes.trim() : undefined,
+          jobType: formJobType,
+          source: formSource,
+          contractAccountName: formSource === "contract" ? formContractAccount : undefined,
+        }),
+      });
+      setModalOpen(false);
+      await refresh();
+    } finally {
+      setSaving(false);
+    }
   }
 
   return (
@@ -238,11 +268,110 @@ export default function App() {
           <div style={{ fontSize: 13, opacity: 0.75 }}>Locksmith Ops (v1: working kanban + local API)</div>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
-          <button onClick={() => quickAdd("organic")}>+ Organic job</button>
-          <button onClick={() => quickAdd("contract")}>+ Contract job</button>
+          <button onClick={() => openNewJob("organic")}>+ New organic job</button>
+          <button onClick={() => openNewJob("contract")}>+ New contract job</button>
           <button onClick={refresh}>Refresh</button>
         </div>
       </div>
+
+      {modalOpen ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.6)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 18,
+            zIndex: 50,
+          }}
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) setModalOpen(false);
+          }}
+        >
+          <div
+            style={{
+              width: 520,
+              maxWidth: "100%",
+              background: "#0B0F14",
+              border: "1px solid rgba(255,255,255,0.14)",
+              borderRadius: 16,
+              padding: 16,
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <h2 style={{ margin: 0 }}>New Job</h2>
+              <button onClick={() => setModalOpen(false)}>Close</button>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 12 }}>
+              <label style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <span style={{ fontSize: 12, opacity: 0.8 }}>Source</span>
+                <select value={formSource} onChange={(e) => setFormSource(e.target.value as Source)}>
+                  <option value="organic">organic</option>
+                  <option value="contract">contract</option>
+                </select>
+              </label>
+
+              <label style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <span style={{ fontSize: 12, opacity: 0.8 }}>Job type</span>
+                <select value={formJobType} onChange={(e) => setFormJobType(e.target.value as JobType)}>
+                  <option value="commercial">commercial</option>
+                  <option value="residential">residential</option>
+                  <option value="automotive">automotive</option>
+                  <option value="safe">safe</option>
+                </select>
+              </label>
+
+              {formSource === "contract" ? (
+                <label style={{ gridColumn: "1 / -1", display: "flex", flexDirection: "column", gap: 6 }}>
+                  <span style={{ fontSize: 12, opacity: 0.8 }}>Contract account</span>
+                  <select
+                    value={formContractAccount}
+                    onChange={(e) => setFormContractAccount(e.target.value as ContractName)}
+                  >
+                    <option value="OCU">OCU</option>
+                    <option value="BASS">BASS</option>
+                    <option value="EVO">EVO</option>
+                    <option value="Academy">Academy</option>
+                  </select>
+                </label>
+              ) : null}
+
+              <label style={{ gridColumn: "1 / -1", display: "flex", flexDirection: "column", gap: 6 }}>
+                <span style={{ fontSize: 12, opacity: 0.8 }}>Title / site</span>
+                <input
+                  value={formTitle}
+                  onChange={(e) => setFormTitle(e.target.value)}
+                  placeholder="e.g., OCU – Store #12 (rear door)"
+                />
+              </label>
+
+              <label style={{ gridColumn: "1 / -1", display: "flex", flexDirection: "column", gap: 6 }}>
+                <span style={{ fontSize: 12, opacity: 0.8 }}>Notes</span>
+                <textarea
+                  value={formNotes}
+                  onChange={(e) => setFormNotes(e.target.value)}
+                  rows={4}
+                  placeholder="What’s going on, parts needed, follow-up, etc."
+                />
+              </label>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 12 }}>
+              <button onClick={() => setModalOpen(false)} disabled={saving}>
+                Cancel
+              </button>
+              <button onClick={submitNewJob} disabled={saving || !formTitle.trim()}>
+                {saving ? "Saving…" : "Create job"}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       {loading ? <p>Loading…</p> : null}
       {error ? <p style={{ color: "salmon" }}>API error: {error}</p> : null}
