@@ -1,0 +1,87 @@
+{
+  "niche": "BigEyes Gym Fuel",
+  "style_anchor": {
+    "do": [
+      "9:16 vertical",
+      "big expressive eyes",
+      "family-friendly stylized 3D animated film look",
+      "soft warm cinematic lighting",
+      "clean kitchen/gym backgrounds",
+      "no text, no logos, no watermarks"
+    ],
+    "dont": [
+      "do not mention Pixar/Disney",
+      "no gore, no body horror",
+      "no medical claims"
+    ]
+  },
+  "facts_bank": [
+    "Many lifters target ~0.7–1.0g protein per lb of bodyweight per day.",
+    "Spreading protein across 3–5 meals can support muscle protein synthesis (MPS).",
+    "A common per-meal target is ~25–40g protein depending on body size and goals.",
+    "Leucine is a key amino acid linked with triggering MPS; high-quality proteins tend to be leucine-rich.",
+    "Protein also supports satiety—helpful in a calorie deficit.",
+    "Whole foods first; supplements are optional convenience.",
+    "Hydration and total calories matter—protein isn’t magic alone.",
+    "Consistency beats perfection: hit targets most days.",
+    "High-protein snacks can bridge gaps (Greek yogurt, cottage cheese, jerky, tuna, edamame).",
+    "Post-workout: protein + carbs can support recovery; daily totals matter most."
+  ],
+  "packs": [
+    {
+      "id": "whey_wizard",
+      "hook": "Protein isn’t a vibe… it’s a target.",
+      "nano_banana_image_prompt": "Vertical 9:16 close-up of a cute anthropomorphic whey protein shaker with BIG expressive eyes and small arms, family-friendly stylized 3D animated film look, soft cinematic lighting, shallow depth of field, clean gym locker background, the shaker looks determined as glowing protein droplets float upward, no text, no logo, no watermark.",
+      "sora_video_prompt": "Create a 9:16 vertical video, 9 seconds. Stylized family-friendly 3D animated film look. A cute anthropomorphic protein shaker with big eyes stands on a bench. Action: the shaker pours a glowing stream into a tiny ‘muscle battery’ icon that fills up; the shaker smiles and flexes. Camera: slow push-in, slight handheld realism. Mood: motivating and cute. No text overlays, no logos, no watermarks. End on a happy reaction shot.",
+      "caption_facts": [
+        "Aim ~0.7–1.0g protein/lb/day (many lifters).",
+        "Spread across 3–5 meals for MPS support."
+      ],
+      "cta": "Free 7-day Gym Fuel plan in bio."
+    },
+    {
+      "id": "chicken_champion",
+      "hook": "Your muscles want THIS at dinner.",
+      "nano_banana_image_prompt": "Vertical 9:16, cute anthropomorphic chicken breast character with BIG eyes wearing a tiny lifting belt, holding a fork like a barbell, stylized 3D animated film look, warm kitchen lighting, clean plate, shallow depth of field, wholesome, no text.",
+      "sora_video_prompt": "9:16 vertical, 10 seconds. Cute anthropomorphic chicken breast with big eyes does a tiny deadlift with a fork, then points to a simple plate (protein + carbs + veg). Camera: medium shot, gentle pan. Mood: funny and motivating. No text/logos/watermarks.",
+      "caption_facts": [
+        "Per-meal target often ~25–40g protein (size-dependent).",
+        "Whole foods first; supplements optional."
+      ],
+      "cta": "Grab the full ebook (recipes + macros) — link in bio."
+    },
+    {
+      "id": "greek_yogurt_guardian",
+      "hook": "Snack that feeds the gains.",
+      "nano_banana_image_prompt": "Vertical 9:16, cute anthropomorphic greek yogurt cup with BIG eyes, lid like a helmet, holding a spoon like a sword, bright clean kitchen background, stylized 3D animated film look, soft light, no text.",
+      "sora_video_prompt": "9:16 vertical, 8 seconds. Greek yogurt character with big eyes opens its lid like a knight visor; berries and granola fall like ‘power-ups’. Camera: close-up to medium. Mood: playful. No text/logos/watermarks.",
+      "caption_facts": [
+        "High-protein snacks help you hit daily totals.",
+        "Protein supports satiety (helpful when cutting)."
+      ],
+      "cta": "Free 7-day plan in bio."
+    },
+    {
+      "id": "egg_elite",
+      "hook": "Small food. Big muscle signal.",
+      "nano_banana_image_prompt": "Vertical 9:16, cute anthropomorphic egg with BIG eyes, wearing a tiny headband, glowing ‘spark’ nearby (leucine concept), stylized 3D animated film look, warm breakfast table scene, no text.",
+      "sora_video_prompt": "9:16 vertical, 9 seconds. A cute egg with big eyes cracks open and a gentle glowing spark floats up (symbolizing leucine); the egg smiles and points toward a simple breakfast plate. Camera: macro close-up, then pull back. No text/logos/watermarks.",
+      "caption_facts": [
+        "Leucine is linked with triggering MPS.",
+        "High-quality proteins tend to be leucine-rich."
+      ],
+      "cta": "Get the macro cheat sheet (free) — link in bio."
+    },
+    {
+      "id": "beans_budget_boss",
+      "hook": "Budget protein = still gains.",
+      "nano_banana_image_prompt": "Vertical 9:16, cute anthropomorphic bowl of beans with BIG eyes, wearing a tiny crown, stylized 3D animated film look, cozy kitchen lighting, clean background, no text.",
+      "sora_video_prompt": "9:16 vertical, 9 seconds. A cute beans bowl with big eyes rolls onto the counter like a hero; price tags float away; a ‘muscle meter’ rises. Camera: quick pan, then steady close-up. No text/logos/watermarks.",
+      "caption_facts": [
+        "Consistency beats perfection: hit targets most days.",
+        "Total calories + training + sleep matter too."
+      ],
+      "cta": "Full Budget Gym Fuel list inside the ebook — link in bio."
+    }
+  ]
+}

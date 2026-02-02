@@ -1,0 +1,13 @@
+{
+  "niche": "big-eyes-gym-fuel",
+  "style": "family-friendly stylized 3D animated film look, big expressive eyes, soft cinematic lighting",
+  "images": [
+    {"id":"cover_mascot","type":"cover","subject":"anthropomorphic chicken breast hero with big eyes, tiny lifting belt, friendly smile"},
+    {"id":"ch1_opener","type":"chapter","subject":"cute dumbbell with big eyes made of protein texture, warm gym background"},
+    {"id":"ch2_opener","type":"chapter","subject":"macro plate diagram as a cute character, big eyes, clean infographic style"},
+    {"id":"ch3_opener","type":"chapter","subject":"leucine spark character (glowing) next to eggs, chicken, whey"},
+    {"id":"ch4_opener","type":"chapter","subject":"clock character with big eyes holding a shaker cup"},
+    {"id":"ch5_opener","type":"chapter","subject":"snack bag character with big eyes filled with greek yogurt, jerky, tuna"},
+    {"id":"ch6_opener","type":"chapter","subject":"budget coin character with big eyes next to beans, eggs, canned fish"}
+  ]
+}
