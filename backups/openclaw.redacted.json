@@ -55,6 +55,9 @@
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
+      },
+      "heartbeat": {
+        "every": "1h"
       }
     }
   },
