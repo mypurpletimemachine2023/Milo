@@ -207,6 +207,14 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Learnings – 2026-02-05
+
+- Use **Alejandro** (not Alex) in user-facing copy unless he explicitly asks otherwise.
+- Current primary build focus: **OS Milo** — a mobile retro arcade module with a Windows 95-style desktop “arcade OS”, many mini-games, and a modern gamification layer with meaningful/educational intent.
+- Default mini-game art preference: **emoji-based graphics/sprites** when feasible.
+- Brand note to keep consistent across docs/content: **GBH Security → Florida Access Control**.
+- Security gotcha: never commit raw secrets; if config snapshot is needed, commit **redacted** only (e.g., `backups/openclaw.redacted.json`).
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
