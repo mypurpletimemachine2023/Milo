@@ -17,16 +17,19 @@ MEM_FILES=()
 [[ -f "memory/${TODAY}.md" ]] && MEM_FILES+=("memory/${TODAY}.md")
 
 PROMPT="You are Milo, Alex's operator agent. Perform a nightly compound review.\n\nContext files (may or may not exist):\n- AGENTS.md (who you are / how you work)\n- SOUL.md (persona)\n- USER.md (about Alex)\n- SECURITY.md (guardrails)\n- Recent memory files: ${MEM_FILES[*]}\n\nTask:\n1) Skim the recent memory files listed above (if present).\n2) Identify 3–10 concrete learnings, patterns, or gotchas from today that are worth keeping long-term.\n3) Update AGENTS.md in-place to capture these learnings under a short dated subsection for ${TODAY} (e.g. '## Learnings – ${TODAY}').\n4) Keep the edit minimal and surgical: no big rewrites, just append/merge notes.\n\nOutput only the final AGENTS.md content; do not include explanations."\n
-# Use OpenClaw's own CLI to call main agent in isolated mode
+# Use OpenClaw CLI to run a single local agent turn.
+# NOTE: We pass an explicit session id to avoid session file locking
+# when the gateway is also running.
 TMP_OUT=$(mktemp)
-openclaw agents run --agent main --isolated --prompt "$PROMPT" > "$TMP_OUT"
+SESSION_ID="compound-review-${TODAY}-$(date +%s)"
+openclaw agent --agent main --local --session-id "$SESSION_ID" --message "$PROMPT" > "$TMP_OUT"
 
 # Write back AGENTS.md from model output
 cat "$TMP_OUT" > AGENTS.md
 rm -f "$TMP_OUT"
 
-# Commit if there are changes
-if ! git diff --quiet AGENTS.md; then
-  git add AGENTS.md
+# Commit if there are changes (works for untracked AGENTS.md too)
+git add AGENTS.md 2>/dev/null || true
+if ! git diff --cached --quiet; then
   git commit -m "auto-compound: nightly learnings ${TODAY}" || true
 fi
