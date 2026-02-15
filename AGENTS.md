@@ -138,7 +138,7 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 
 **Use heartbeat when:**
 
-- Multiple checks can batch together (inbox + calendar + notifications in one turn)
+- Multiple checks can batch together (inbox + calendar + mentions in one turn)
 - You need conversational context from recent messages
 - Timing can drift slightly (every ~30 min is fine, not exact)
 - You want to reduce API calls by combining periodic checks
@@ -214,6 +214,25 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 - Default mini-game art preference: **emoji-based graphics/sprites** when feasible.
 - Brand note to keep consistent across docs/content: **GBH Security → Florida Access Control**.
 - Security gotcha: never commit raw secrets; if config snapshot is needed, commit **redacted** only (e.g., `backups/openclaw.redacted.json`).
+
+## Learnings – 2026-02-12
+
+- Memory architecture > prompts: maintain `memory/active-tasks.md` as a crash-recovery save-game; keep daily raw logs in `memory/YYYY-MM-DD.md`; keep thematic long-term notes in separate files.
+- Subagents are a multiplier: spawn 3–5 in parallel for big tasks with explicit success criteria and self-validation.
+- Cron > heartbeat for precise schedules; keep HEARTBEAT.md tiny to reduce token burn.
+- Treat pasted credentials as burned; rotate immediately; prefer dedicated collaborator accounts.
+- Skills should include clear routing guidance (Use when / Don’t use when) to reduce misfires.
+
+## Learnings – 2026-02-15
+
+- **Keys pasted in chat are burned.** Don’t ask for secrets in Telegram; prefer terminal env vars / local `.env.local` and rotate immediately if leaked.
+- **Gemini API reality:** key works for text (`generateContent`), but Gemini image generation via the simple API path may fail/return text-only; plan a fallback (OpenAI images, Vertex/Imagen, or local GPU box).
+- **This VM has no GPU + low RAM (~4GB):** local image models will be slow/unreliable; prioritize cloud images or offload to a GPU machine.
+- **PDF pipeline that works without sudo:** use local Pandoc binary + `puppeteer-core` with system Chrome (`tools/html_to_pdf.js`) to produce PDFs from markdown.
+- **If OpenClaw session scripts fail with a `.jsonl.lock`:** gateway may leave transcript locked; restart may not clear; with explicit user confirmation, remove the lock file and rerun.
+- **Lock gotcha:** even after removing a lock, another `openclaw-agent` process may recreate it; kill the stuck agent process (if safe) before rerunning scripts.
+- **Dashboard graphics pattern:** tilemaps should render on `<canvas>` for performance; animated sprites should be DOM overlays (e.g., `framer-motion`) so transparency/animation is clean.
+- **Open-source assets:** prefer CC0 tilesets (e.g., Kenney) and keep the license file in-repo alongside the assets.
 
 ## Make It Yours
 
