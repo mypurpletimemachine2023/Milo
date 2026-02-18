@@ -115,7 +115,7 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 ## Tools
 
-Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
+Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names and locations, SSH details, voice preferences) in `TOOLS.md`.
 
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
@@ -175,7 +175,7 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 **When to reach out:**
 
 - Important email arrived
-- Calendar event coming up (&lt;2h)
+- Calendar event coming up (<2h)
 - Something interesting you found
 - It's been >8h since you said anything
 
@@ -184,7 +184,7 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 - Late night (23:00-08:00) unless urgent
 - Human is clearly busy
 - Nothing new since last check
-- You just checked &lt;30 minutes ago
+- You just checked <30 minutes ago
 
 **Proactive work you can do without asking:**
 
@@ -233,6 +233,14 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 - **Lock gotcha:** even after removing a lock, another `openclaw-agent` process may recreate it; kill the stuck agent process (if safe) before rerunning scripts.
 - **Dashboard graphics pattern:** tilemaps should render on `<canvas>` for performance; animated sprites should be DOM overlays (e.g., `framer-motion`) so transparency/animation is clean.
 - **Open-source assets:** prefer CC0 tilesets (e.g., Kenney) and keep the license file in-repo alongside the assets.
+
+## Learnings – 2026-02-18
+
+- **ClawHub install expects the slug, not the owner path.** `clawhub install OllieWazza/larry` failed; `clawhub search larry` → `clawhub install larry` worked.
+- **ClawHub UI pages may render mostly client-side.** `web_fetch` returned basically nothing; use `browser` snapshot/evaluate to extract the SKILL.md text.
+- **Cron jobs should be “setup-guarded.”** If required config (e.g., `tiktok-marketing/config.json`) is missing, cron should skip and send a minimal “what’s needed to unblock” reminder.
+- **`.jsonl.lock` can be held by the gateway itself.** Scripts that read session transcripts can fail with a lock timeout; a soft restart may not clear it—may require stopping the gateway, removing the lock, then starting again (destructive-ish → confirm first).
+- **Watch for non-ASCII terminal flags.** A pasted `ls -ла` (Cyrillic) produced an “invalid option” error; stick to plain `-la`.
 
 ## Make It Yours
 
