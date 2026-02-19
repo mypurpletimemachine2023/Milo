@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import type { Catalog } from '../lib/catalog'
+import { TextRpg } from '../rpg/TextRpg'
 
 export function Play({ slug, catalog, onClose }: { slug: string; catalog: Catalog; onClose: () => void }) {
   const game = catalog.rows.flatMap((r) => r.games).find((g) => g.slug === slug)
@@ -32,7 +33,7 @@ export function Play({ slug, catalog, onClose }: { slug: string; catalog: Catalo
         </div>
 
         <div className="playerHeaderRight">
-          {game?.playableUrl ? (
+          {game?.playableUrl && !game.playableUrl.startsWith('/rpg/') ? (
             <a className="playerLink" href={game.playableUrl} target="_blank" rel="noreferrer">
               Open ↗
             </a>
@@ -43,7 +44,11 @@ export function Play({ slug, catalog, onClose }: { slug: string; catalog: Catalo
         </div>
       </header>
 
-      {game?.playableUrl ? (
+      {game?.playableUrl?.startsWith('/rpg/') ? (
+        <div className="playerFrame" style={{ background: '#000' }}>
+          <TextRpg gameId={game.playableUrl.replace('/rpg/', '')} />
+        </div>
+      ) : game?.playableUrl ? (
         <iframe className="playerFrame" src={game.playableUrl} title={game.title} allow="fullscreen" />
       ) : (
         <div className="playerEmpty">

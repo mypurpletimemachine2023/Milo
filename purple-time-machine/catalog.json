@@ -99,6 +99,22 @@
           "playableUrl": "/games/monastery-candle-keeper/index.html"
         }
       ]
+    },
+    {
+      "id": "text-adventures",
+      "title": "Text RPG Adventures",
+      "games": [
+        {
+          "slug": "bazaar-of-doors",
+          "title": "Arabian Nights: The Bazaar of Doors",
+          "row": "text-adventures",
+          "oneLiner": "Choose a door. Pay with a memory. Collect shards to escape.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "One Thousand and One Nights (public domain)",
+          "playableUrl": "/rpg/bazaar_of_doors"
+        }
+      ]
     }
   ]
 }

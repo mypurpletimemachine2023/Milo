@@ -1,0 +1,96 @@
+{
+  "gameId": "bazaar_of_doors",
+  "title": "Arabian Nights: The Bazaar of Doors",
+  "startScene": "hub",
+  "initialState": {
+    "sceneId": "hub",
+    "stats": { "bold": 0, "kind": 0, "cautious": 0, "greedy": 0 },
+    "inventory": {},
+    "flags": { "shards": 0 }
+  },
+  "scenes": [
+    {
+      "id": "hub",
+      "title": "The Bazaar",
+      "body": "Lanterns sway over black stone. Three doors watch you: Ivory, Brass, Obsidian.\nYou hold {flags.shards} Story Shards.",
+      "choices": [
+        { "id": "ivory", "label": "Enter the Ivory Door", "next": "ivory_1" },
+        { "id": "brass", "label": "Enter the Brass Door", "next": "brass_1" },
+        {
+          "id": "obsidian",
+          "label": "Enter the Obsidian Door (needs 2 shards)",
+          "requires": [{ "type": "flagGte", "key": "shards", "value": 2 }],
+          "next": "obsidian_1"
+        }
+      ]
+    },
+    {
+      "id": "ivory_1",
+      "title": "The Perfumer",
+      "body": "A perfumer offers a vial. 'Pay with a memory,' he says. The air tastes like gold and smoke.",
+      "choices": [
+        {
+          "id": "pay",
+          "label": "Pay with a memory (Kind +1, Shard +1)",
+          "effects": [
+            { "type": "incStat", "key": "kind", "value": 1 },
+            { "type": "incFlag", "key": "shards", "value": 1 }
+          ],
+          "next": "return_hub"
+        },
+        {
+          "id": "steal",
+          "label": "Steal it (Greedy +1, Shard +1)",
+          "effects": [
+            { "type": "incStat", "key": "greedy", "value": 1 },
+            { "type": "incFlag", "key": "shards", "value": 1 },
+            { "type": "setFlag", "key": "cursed", "value": true }
+          ],
+          "next": "return_hub"
+        }
+      ]
+    },
+    {
+      "id": "brass_1",
+      "title": "The Locksmith",
+      "body": "A locksmith stands before a door with no handle. 'Sometimes courage is the key,' he says.",
+      "choices": [
+        {
+          "id": "push",
+          "label": "Push through anyway (Bold +1, Shard +1)",
+          "effects": [
+            { "type": "incStat", "key": "bold", "value": 1 },
+            { "type": "incFlag", "key": "shards", "value": 1 }
+          ],
+          "next": "return_hub"
+        },
+        {
+          "id": "wait",
+          "label": "Wait and listen (Cautious +1)",
+          "effects": [{ "type": "incStat", "key": "cautious", "value": 1 }],
+          "next": "return_hub"
+        }
+      ]
+    },
+    {
+      "id": "obsidian_1",
+      "title": "The Exit",
+      "body": "The obsidian door opens like a curtain. Beyond it: daylight. The bazaar fades behind you.",
+      "choices": [
+        {
+          "id": "escape",
+          "label": "Step through",
+          "effects": [{ "type": "endGame", "outcome": "win", "message": "You escape with your story intact. The doors close. For now." }]
+        }
+      ]
+    },
+    {
+      "id": "return_hub",
+      "title": "Back to the Bazaar",
+      "body": "The lanterns sway again. The doors wait.\nYou hold {flags.shards} Story Shards.",
+      "choices": [
+        { "id": "back", "label": "Return to the doors", "next": "hub" }
+      ]
+    }
+  ]
+}

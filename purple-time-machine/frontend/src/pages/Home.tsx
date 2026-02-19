@@ -14,6 +14,8 @@ function rowEmoji(row: GameRowId) {
       return '🧪'
     case 'idle-worlds':
       return '🕯️'
+    case 'text-adventures':
+      return '📜'
   }
 }
 

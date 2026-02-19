@@ -4,6 +4,7 @@ export type GameRowId =
   | 'classic-horror'
   | 'history-challenges'
   | 'idle-worlds'
+  | 'text-adventures'
 
 export type GameEraId = 'ancient' | 'medieval' | '1800s' | 'unknown'
 
@@ -43,6 +44,8 @@ function inferEraFromGame(g: GameCard): GameEraId {
     case 'history-challenges':
     case 'weird-experiments':
       return 'ancient'
+    case 'text-adventures':
+      return 'unknown'
   }
 }
 

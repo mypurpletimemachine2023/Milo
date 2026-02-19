@@ -94,6 +94,19 @@ body{margin:0;background:#000;color:#fff;font-family:Cinzel, "Times New Roman", 
 
 /* player overlay (Netflix-ish, mobile-first) */
 .playerOverlay{position:fixed;inset:0;background:rgba(0,0,0,.70);display:flex;flex-direction:column;z-index:60}
+
+/* text RPG */
+.rpg{height:100%;display:flex;align-items:stretch;justify-content:center;overflow:auto;padding:18px}
+.rpgCard{width:min(760px,100%);margin:0 auto;border:1px solid var(--border);background:rgba(0,0,0,.65);border-radius:18px;box-shadow:0 24px 80px rgba(0,0,0,.65);padding:18px}
+.rpgKicker{letter-spacing:.18em;text-transform:uppercase;font-weight:900;font-size:11px;color:var(--gold);opacity:.95}
+.rpgTitle{margin-top:8px;font-weight:900;font-size:22px;letter-spacing:.02em}
+.rpgBody{margin-top:10px;color:rgba(255,255,255,.86);font-family:"Times New Roman",Times,serif;white-space:pre-wrap;line-height:1.45}
+.rpgMeta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.rpgPill{border:1px solid var(--border2);background:rgba(255,255,255,.03);border-radius:999px;padding:8px 10px;font-size:12px;color:rgba(255,255,255,.82)}
+.rpgChoices{margin-top:14px;display:grid;gap:10px}
+.rpgBtn{border:1px solid var(--border2);background:rgba(255,255,255,.04);color:#fff;border-radius:14px;padding:12px 14px;font-weight:900;text-align:left;cursor:pointer}
+.rpgBtn:hover{border-color:rgba(255,255,255,.28)}
+.rpgBtnGold{background:linear-gradient(180deg, rgba(212,175,55,.95), rgba(156,120,20,.95));border-color:rgba(212,175,55,.85);color:#000}
 .playerHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;
   padding:calc(10px + env(safe-area-inset-top)) 12px 10px;
   background:rgba(5,6,10,.92);border-bottom:1px solid rgba(255,255,255,.10)
