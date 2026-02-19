@@ -1,0 +1,8 @@
+modern premium streaming key art, cinematic photoreal look, dramatic rim lighting, shallow depth of field, high detail, moody atmosphere, no logos, no text in the image
+Subject: cover art for a microgame titled "Odyssey: Siren Signal".
+Theme row: mythology.
+Public-domain inspiration: Homer — Odyssey (ancient epic; public domain).
+Gameplay hook: Tap the safe beat. Tap off-beat 3 times and the sirens win.
+Composition: cinematic key art, centered subject, strong silhouette, readable at small size, no text.
+
+Negative: watermark, logo, signature, text, words, letters, ui, screenshot

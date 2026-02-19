@@ -1,0 +1,104 @@
+{
+  "rows": [
+    {
+      "id": "mythology",
+      "title": "Mythology Games",
+      "games": [
+        {
+          "slug": "odyssey-siren-signal",
+          "title": "Odyssey: Siren Signal",
+          "row": "mythology",
+          "oneLiner": "Tap the safe beat. Tap off-beat 3 times and the sirens win.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Homer — Odyssey (ancient epic; public domain)",
+          "playableUrl": "/games/odyssey-siren-signal/index.html"
+        },
+        {
+          "slug": "sisyphus-tap",
+          "title": "Sisyphus Tap",
+          "row": "mythology",
+          "oneLiner": "Tap to push the boulder. Slip once and it resets.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Greek mythology (public domain)",
+          "playableUrl": "/games/sisyphus-tap/index.html"
+        }
+      ]
+    },
+    {
+      "id": "weird-experiments",
+      "title": "Weird Experiments",
+      "games": [
+        {
+          "slug": "archimedes-circle-drop",
+          "title": "Archimedes: Circle Drop",
+          "row": "weird-experiments",
+          "oneLiner": "Tap to drop a dot. Land inside the circle for points.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Archimedes (ancient mathematics; public domain)",
+          "playableUrl": "/games/archimedes-circle-drop/index.html"
+        }
+      ]
+    },
+    {
+      "id": "classic-horror",
+      "title": "Classic Horror",
+      "games": [
+        {
+          "slug": "frankenstein-spark-catch",
+          "title": "Frankenstein: Spark Catch",
+          "row": "classic-horror",
+          "oneLiner": "Tap to catch sparks. Miss 3 and the monster wakes.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Mary Shelley — Frankenstein (1818, public domain)",
+          "playableUrl": "/games/frankenstein-spark-catch/index.html"
+        },
+        {
+          "slug": "dracula-bat-swat",
+          "title": "Dracula: Bat Swat",
+          "row": "classic-horror",
+          "oneLiner": "Tap to swat bats. Miss 3 and the night wins.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Bram Stoker — Dracula (1897, public domain)",
+          "playableUrl": "/games/dracula-bat-swat/index.html"
+        }
+      ]
+    },
+    {
+      "id": "history-challenges",
+      "title": "History Challenges",
+      "games": [
+        {
+          "slug": "pharaoh-flood-gate",
+          "title": "Pharaoh: Flood Gate",
+          "row": "history-challenges",
+          "oneLiner": "Hold to open the gate. Don’t overfill the field.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Ancient Egypt / Nile flooding (historical; public domain)",
+          "playableUrl": "/games/pharaoh-flood-gate/index.html"
+        }
+      ]
+    },
+    {
+      "id": "idle-worlds",
+      "title": "Idle Worlds",
+      "games": [
+        {
+          "slug": "monastery-candle-keeper",
+          "title": "Monastery: Candle Keeper",
+          "row": "idle-worlds",
+          "oneLiner": "Tap to add wax. Keep the candle lit; waste 3 taps and you lose.",
+          "input": "tap",
+          "estSession": "30s-5m",
+          "source": "Medieval monastic life (historical; public domain)",
+          "playableUrl": "/games/monastery-candle-keeper/index.html"
+        }
+      ]
+    }
+  ]
+}

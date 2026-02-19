@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Archimedes: Circle Drop</title>
+    <style>
+      html,body{margin:0;height:100%;background:#05060a;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+      #wrap{height:100%;display:grid;place-items:center}
+      canvas{background:linear-gradient(180deg,#0b1020,#070812);border:1px solid rgba(255,255,255,.12);border-radius:14px;touch-action:manipulation}
+      #hud{position:fixed;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:10px;font-size:12px;opacity:.9}
+      .pill{padding:8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+      #hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:12px;opacity:.7}
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <div class="pill" id="score">0</div>
+      <div class="pill" id="best">best 0</div>
+    </div>
+    <div id="wrap"><canvas id="c" width="360" height="520"></canvas></div>
+    <div id="hint">Tap / click to DROP. Inside the circle = score. Outside = miss.</div>
+    <script>
+      const canvas = document.getElementById('c');
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const bestEl = document.getElementById('best');
+      const W = canvas.width, H = canvas.height;
+      
+let score=0, misses=0, alive=true;
+let best=Number(localStorage.getItem('archimedes_best')||0);
+const cx=W/2, cy=H/2, R=140;
+let dot=null;
+function reset(){ score=0; misses=0; alive=true; dot=null; }
+function drop(px){
+  if(!alive){ reset(); return; }
+  const x=px;
+  const inside = (x-cx)*(x-cx) <= R*R;
+  dot={x, inside};
+  if(inside) score++; else misses++;
+  if(misses>=3){ alive=false; best=Math.max(best,score); localStorage.setItem('archimedes_best', String(best)); }
+}
+window.addEventListener('pointerdown', (e)=>{
+  const r=canvas.getBoundingClientRect();
+  drop((e.clientX-r.left)*(W/r.width));
+}, {passive:true});
+function loop(){
+  ctx.clearRect(0,0,W,H);
+  // circle
+  ctx.strokeStyle='rgba(170,170,255,.55)'; ctx.lineWidth=6;
+  ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.stroke();
+  // dot
+  if(dot){
+    ctx.fillStyle=dot.inside ? 'rgba(120,255,160,.95)' : 'rgba(255,120,120,.95)';
+    ctx.beginPath(); ctx.arc(dot.x, cy, 10, 0, Math.PI*2); ctx.fill();
+  }
+  scoreEl.textContent=String(score);
+  bestEl.textContent='best '+best+' • misses '+misses;
+  if(!alive){
+    ctx.fillStyle='rgba(0,0,0,.55)'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#fff'; ctx.textAlign='center';
+    ctx.font='800 22px system-ui'; ctx.fillText('THREE MISSES.', W/2, H*0.42);
+    ctx.font='600 14px system-ui'; ctx.fillText('Tap to try again', W/2, H*0.48);
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+    </script>
+  </body>
+</html>

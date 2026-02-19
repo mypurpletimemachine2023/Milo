@@ -1,0 +1,8 @@
+modern premium streaming key art, cinematic photoreal look, dramatic rim lighting, shallow depth of field, high detail, moody atmosphere, no logos, no text in the image
+Subject: cover art for a microgame titled "Archimedes: Circle Drop".
+Theme row: weird-experiments.
+Public-domain inspiration: Archimedes (ancient mathematics; public domain).
+Gameplay hook: Tap to drop a dot. Land inside the circle for points.
+Composition: cinematic key art, centered subject, strong silhouette, readable at small size, no text.
+
+Negative: watermark, logo, signature, text, words, letters, ui, screenshot

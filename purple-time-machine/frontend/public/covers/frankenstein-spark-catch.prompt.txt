@@ -1,0 +1,8 @@
+modern premium streaming key art, cinematic photoreal look, dramatic rim lighting, shallow depth of field, high detail, moody atmosphere, no logos, no text in the image
+Subject: cover art for a microgame titled "Frankenstein: Spark Catch".
+Theme row: classic-horror.
+Public-domain inspiration: Mary Shelley — Frankenstein (1818, public domain).
+Gameplay hook: Tap to catch sparks. Miss 3 and the monster wakes.
+Composition: cinematic key art, centered subject, strong silhouette, readable at small size, no text.
+
+Negative: watermark, logo, signature, text, words, letters, ui, screenshot

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odyssey: Siren Signal</title>
+    <style>
+      html,body{margin:0;height:100%;background:#05060a;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+      #wrap{height:100%;display:grid;place-items:center}
+      canvas{background:linear-gradient(180deg,#0b1020,#070812);border:1px solid rgba(255,255,255,.12);border-radius:14px;touch-action:manipulation}
+      #hud{position:fixed;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:10px;font-size:12px;opacity:.9}
+      .pill{padding:8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+      #hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:12px;opacity:.7}
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <div class="pill" id="score">0</div>
+      <div class="pill" id="best">best 0</div>
+    </div>
+    <div id="wrap"><canvas id="c" width="360" height="520"></canvas></div>
+    <div id="hint">Tap ONLY when the ring is bright. 3 off-beat taps = lose.</div>
+    <script>
+      const canvas = document.getElementById('c');
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const bestEl = document.getElementById('best');
+      const W = canvas.width, H = canvas.height;
+      
+let score=0, misses=0, alive=true;
+let best=Number(localStorage.getItem('odyssey_siren_best')||0);
+let t0=performance.now();
+let phase=0; // 0..1
+let lastTap=0;
+
+function reset(){ score=0; misses=0; alive=true; t0=performance.now(); lastTap=0; }
+
+function isBright(p){
+  // bright window centered at 0.5
+  const d=Math.abs(p-0.5);
+  return d < 0.12;
+}
+
+function tap(){
+  if(!alive){ reset(); return; }
+  const now=performance.now();
+  if(now-lastTap < 120) return; // debouncer
+  lastTap=now;
+  const ok=isBright(phase);
+  if(ok) score++; else misses++;
+  if(misses>=3){ alive=false; best=Math.max(best,score); localStorage.setItem('odyssey_siren_best', String(best)); }
+}
+
+window.addEventListener('pointerdown', tap, {passive:true});
+
+function loop(t){
+  const beatMs = 900 - Math.min(500, score*12); // speeds up slowly
+  phase = ((t - t0) % beatMs) / beatMs;
+
+  ctx.clearRect(0,0,W,H);
+
+  // ocean backdrop
+  ctx.fillStyle='rgba(40,80,150,.10)';
+  for(let y=0;y<H;y+=18){
+    ctx.fillRect(0, y + Math.sin((y/40)+(t/900))*3, W, 1);
+  }
+
+  // ring
+  const cx=W/2, cy=H*0.52;
+  const R=120;
+  const bright=isBright(phase);
+  ctx.lineWidth=10;
+  ctx.strokeStyle = bright ? 'rgba(255,240,160,.95)' : 'rgba(180,180,210,.25)';
+  ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.stroke();
+
+  // pulse marker
+  const a = phase*Math.PI*2;
+  ctx.fillStyle = 'rgba(255,255,255,.65)';
+  ctx.beginPath(); ctx.arc(cx + Math.cos(a)*R, cy + Math.sin(a)*R, 8, 0, Math.PI*2); ctx.fill();
+
+  scoreEl.textContent=String(score);
+  bestEl.textContent='best '+best+' • off-beat '+misses;
+
+  if(!alive){
+    ctx.fillStyle='rgba(0,0,0,.55)'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#fff'; ctx.textAlign='center';
+    ctx.font='800 22px system-ui'; ctx.fillText('SIRENS WIN.', W/2, H*0.42);
+    ctx.font='600 14px system-ui'; ctx.fillText('Tap to try again', W/2, H*0.48);
+  }
+
+  requestAnimationFrame(loop);
+}
+reset(); requestAnimationFrame(loop);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharaoh: Flood Gate</title>
+    <style>
+      html,body{margin:0;height:100%;background:#05060a;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+      #wrap{height:100%;display:grid;place-items:center}
+      canvas{background:linear-gradient(180deg,#0b1020,#070812);border:1px solid rgba(255,255,255,.12);border-radius:14px;touch-action:manipulation}
+      #hud{position:fixed;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:10px;font-size:12px;opacity:.9}
+      .pill{padding:8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+      #hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:12px;opacity:.7}
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <div class="pill" id="score">0</div>
+      <div class="pill" id="best">best 0</div>
+    </div>
+    <div id="wrap"><canvas id="c" width="360" height="520"></canvas></div>
+    <div id="hint">Press & hold to OPEN the gate. Fill to the line — don’t overflow.</div>
+    <script>
+      const canvas = document.getElementById('c');
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const bestEl = document.getElementById('best');
+      const W = canvas.width, H = canvas.height;
+      
+let fill=0, score=0, alive=true;
+let best=Number(localStorage.getItem('pharaoh_best')||0);
+let holding=false;
+const target=0.72;
+function reset(){ fill=0.1; score=0; alive=true; }
+window.addEventListener('pointerdown', ()=>{ holding=true; }, {passive:true});
+window.addEventListener('pointerup', ()=>{ holding=false; }, {passive:true});
+window.addEventListener('pointercancel', ()=>{ holding=false; }, {passive:true});
+let last=performance.now();
+function loop(t){
+  const dt=Math.min(0.033,(t-last)/1000); last=t;
+  if(alive){
+    fill += (holding ? 0.55 : -0.35) * dt; // one mechanic: hold changes fill rate
+    fill = Math.max(0, fill);
+    if(fill >= target && fill <= target+0.02){ score += dt*3; }
+    if(fill > 0.92){ alive=false; best=Math.max(best, Math.floor(score*10)); localStorage.setItem('pharaoh_best', String(best)); }
+  }
+  ctx.clearRect(0,0,W,H);
+  // field box
+  const bx=70, by=90, bw=W-140, bh=H-200;
+  ctx.strokeStyle='rgba(255,255,255,.18)'; ctx.lineWidth=3;
+  ctx.strokeRect(bx,by,bw,bh);
+  // target line
+  const ty = by + bh*(1-target);
+  ctx.strokeStyle='rgba(120,255,160,.65)'; ctx.lineWidth=3;
+  ctx.beginPath(); ctx.moveTo(bx,ty); ctx.lineTo(bx+bw,ty); ctx.stroke();
+  // water
+  const wh = bh*fill;
+  ctx.fillStyle='rgba(120,170,255,.55)';
+  ctx.fillRect(bx, by+bh-wh, bw, wh);
+  scoreEl.textContent=String(Math.floor(score*10));
+  bestEl.textContent='best '+best;
+  if(!alive){
+    ctx.fillStyle='rgba(0,0,0,.55)'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#fff'; ctx.textAlign='center';
+    ctx.font='800 22px system-ui'; ctx.fillText('OVERFLOW.', W/2, H*0.42);
+    ctx.font='600 14px system-ui'; ctx.fillText('Tap to try again', W/2, H*0.48);
+  }
+  requestAnimationFrame(loop);
+}
+reset(); requestAnimationFrame(loop);
+
+    </script>
+  </body>
+</html>

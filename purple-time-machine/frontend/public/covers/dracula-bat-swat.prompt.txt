@@ -1,0 +1,8 @@
+modern premium streaming key art, cinematic photoreal look, dramatic rim lighting, shallow depth of field, high detail, moody atmosphere, no logos, no text in the image
+Subject: cover art for a microgame titled "Dracula: Bat Swat".
+Theme row: classic-horror.
+Public-domain inspiration: Bram Stoker — Dracula (1897, public domain).
+Gameplay hook: Tap to swat bats. Miss 3 and the night wins.
+Composition: cinematic key art, centered subject, strong silhouette, readable at small size, no text.
+
+Negative: watermark, logo, signature, text, words, letters, ui, screenshot

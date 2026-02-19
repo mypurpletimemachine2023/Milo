@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monastery: Candle Keeper</title>
+    <style>
+      html,body{margin:0;height:100%;background:#05060a;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+      #wrap{height:100%;display:grid;place-items:center}
+      canvas{background:linear-gradient(180deg,#0b1020,#070812);border:1px solid rgba(255,255,255,.12);border-radius:14px;touch-action:manipulation}
+      #hud{position:fixed;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:10px;font-size:12px;opacity:.9}
+      .pill{padding:8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+      #hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:12px;opacity:.7}
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <div class="pill" id="score">0</div>
+      <div class="pill" id="best">best 0</div>
+    </div>
+    <div id="wrap"><canvas id="c" width="360" height="520"></canvas></div>
+    <div id="hint">Tap to add wax when the flame is LOW. 3 wasteful taps or flame-out = lose.</div>
+    <script>
+      const canvas = document.getElementById('c');
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const bestEl = document.getElementById('best');
+      const W = canvas.width, H = canvas.height;
+      
+let fuel=0.65;
+let waste=0;
+let alive=true;
+let score=0;
+let last=performance.now();
+let lastTap=0;
+let best=Number(localStorage.getItem('monastery_candle_best')||0);
+
+function reset(){ fuel=0.65; waste=0; alive=true; score=0; last=performance.now(); }
+
+function tap(){
+  if(!alive){ reset(); return; }
+  const now=performance.now();
+  if(now-lastTap < 90) return;
+  lastTap=now;
+  if(fuel > 0.85){ waste++; }
+  fuel = Math.min(1, fuel + 0.24);
+  if(waste>=3){ alive=false; best=Math.max(best,Math.floor(score)); localStorage.setItem('monastery_candle_best', String(best)); }
+}
+window.addEventListener('pointerdown', tap, {passive:true});
+
+function loop(t){
+  const dt=Math.min(0.05,(t-last)/1000); last=t;
+  if(alive){
+    // burn rate ramps slightly with time survived
+    const burn = 0.08 + Math.min(0.18, score*0.0015);
+    fuel -= burn*dt;
+    score += dt*10; // ~10 pts per second
+    if(fuel <= 0){
+      fuel = 0;
+      alive=false;
+      best=Math.max(best,Math.floor(score));
+      localStorage.setItem('monastery_candle_best', String(best));
+    }
+  }
+
+  ctx.clearRect(0,0,W,H);
+
+  // soft vignette
+  const g=ctx.createRadialGradient(W/2,H/2,40,W/2,H/2,320);
+  g.addColorStop(0,'rgba(255,220,160,.10)');
+  g.addColorStop(1,'rgba(0,0,0,.65)');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+
+  const cx=W/2;
+  const baseY=H*0.80;
+
+  // candle body
+  const cw=80, ch=220;
+  ctx.fillStyle='rgba(235,235,245,.85)';
+  ctx.fillRect(cx-cw/2, baseY-ch, cw, ch);
+  ctx.strokeStyle='rgba(0,0,0,.25)'; ctx.lineWidth=4;
+  ctx.strokeRect(cx-cw/2, baseY-ch, cw, ch);
+
+  // wax level window
+  const levelH = ch * fuel;
+  ctx.fillStyle='rgba(120,170,255,.20)';
+  ctx.fillRect(cx-cw/2, baseY-levelH, cw, levelH);
+
+  // flame
+  const flameH = 28 + fuel*46;
+  const flick = Math.sin(t/90)*3 + Math.cos(t/140)*2;
+  const hot = Math.max(0, Math.min(1, (fuel-0.15)/0.85));
+  ctx.fillStyle = alive ? ('rgba('+(220+35*hot)+','+(170+60*hot)+',80,.95)') : 'rgba(180,180,200,.25)';
+  ctx.beginPath();
+  ctx.ellipse(cx, baseY-ch-20, 18+flick, flameH/2, 0, 0, Math.PI*2);
+  ctx.fill();
+
+  // wick
+  ctx.strokeStyle='rgba(0,0,0,.55)'; ctx.lineWidth=4;
+  ctx.beginPath(); ctx.moveTo(cx, baseY-ch-6); ctx.lineTo(cx, baseY-ch+8); ctx.stroke();
+
+  scoreEl.textContent=String(Math.floor(score));
+  bestEl.textContent='best '+best+' • waste '+waste;
+
+  // guidance bar
+  ctx.fillStyle = fuel < 0.35 ? 'rgba(120,255,160,.35)' : 'rgba(255,255,255,.10)';
+  ctx.fillRect(50, 60, (W-100)*fuel, 10);
+  ctx.strokeStyle='rgba(255,255,255,.18)'; ctx.lineWidth=2;
+  ctx.strokeRect(50, 60, W-100, 10);
+
+  if(!alive){
+    ctx.fillStyle='rgba(0,0,0,.55)'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#fff'; ctx.textAlign='center';
+    ctx.font='800 22px system-ui';
+    ctx.fillText(fuel<=0 ? 'FLAME OUT.' : 'TOO MUCH WAX.', W/2, H*0.42);
+    ctx.font='600 14px system-ui';
+    ctx.fillText('Tap to try again', W/2, H*0.48);
+  }
+
+  requestAnimationFrame(loop);
+}
+reset(); requestAnimationFrame(loop);
+
+    </script>
+  </body>
+</html>

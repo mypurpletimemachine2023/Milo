@@ -1,0 +1,8 @@
+modern premium streaming key art, cinematic photoreal look, dramatic rim lighting, shallow depth of field, high detail, moody atmosphere, no logos, no text in the image
+Subject: cover art for a microgame titled "Monastery: Candle Keeper".
+Theme row: idle-worlds.
+Public-domain inspiration: Medieval monastic life (historical; public domain).
+Gameplay hook: Tap to add wax. Keep the candle lit; waste 3 taps and you lose.
+Composition: cinematic key art, centered subject, strong silhouette, readable at small size, no text.
+
+Negative: watermark, logo, signature, text, words, letters, ui, screenshot

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dracula: Bat Swat</title>
+    <style>
+      html,body{margin:0;height:100%;background:#05060a;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+      #wrap{height:100%;display:grid;place-items:center}
+      canvas{background:linear-gradient(180deg,#0b1020,#070812);border:1px solid rgba(255,255,255,.12);border-radius:14px;touch-action:manipulation}
+      #hud{position:fixed;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:10px;font-size:12px;opacity:.9}
+      .pill{padding:8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+      #hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:12px;opacity:.7}
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <div class="pill" id="score">0</div>
+      <div class="pill" id="best">best 0</div>
+    </div>
+    <div id="wrap"><canvas id="c" width="360" height="520"></canvas></div>
+    <div id="hint">Tap / click to SWAT. Miss 3 bats and you lose.</div>
+    <script>
+      const canvas = document.getElementById('c');
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const bestEl = document.getElementById('best');
+      const W = canvas.width, H = canvas.height;
+      
+let bats=[], misses=0, score=0, alive=true;
+let best=Number(localStorage.getItem('dracula_bat_best')||0);
+function reset(){ bats=[]; misses=0; score=0; alive=true; spawn(); spawn(); }
+function spawn(){
+  bats.push({x:Math.random()*(W-80)+40, y:H+30, vy:-(140+Math.random()*160), r:18+Math.random()*6});
+}
+function swat(px,py){
+  if(!alive){ reset(); return; }
+  for(let i=bats.length-1;i>=0;i--){
+    const b=bats[i];
+    const dx=px-b.x, dy=py-b.y;
+    if(dx*dx+dy*dy < (b.r+18)*(b.r+18)){
+      bats.splice(i,1);
+      score++;
+      spawn();
+      return;
+    }
+  }
+}
+window.addEventListener('pointerdown', (e)=>{
+  const r=canvas.getBoundingClientRect();
+  swat((e.clientX-r.left)*(W/r.width),(e.clientY-r.top)*(H/r.height));
+}, {passive:true});
+let last=performance.now();
+function loop(t){
+  const dt=Math.min(0.033,(t-last)/1000); last=t;
+  if(alive){
+    for(const b of bats){ b.y += b.vy*dt; }
+    for(let i=bats.length-1;i>=0;i--){
+      if(bats[i].y < -30){ bats.splice(i,1); misses++; spawn(); }
+    }
+    if(misses>=3){ alive=false; best=Math.max(best,score); localStorage.setItem('dracula_bat_best', String(best)); }
+  }
+  ctx.clearRect(0,0,W,H);
+  // bats
+  for(const b of bats){
+    ctx.fillStyle='rgba(220,220,230,.95)';
+    ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle='rgba(0,0,0,.35)'; ctx.lineWidth=4; ctx.stroke();
+    ctx.strokeStyle='rgba(255,255,255,.25)'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(b.x-b.r-16,b.y); ctx.lineTo(b.x-b.r+6,b.y-10); ctx.lineTo(b.x-b.r+6,b.y+10); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(b.x+b.r+16,b.y); ctx.lineTo(b.x+b.r-6,b.y-10); ctx.lineTo(b.x+b.r-6,b.y+10); ctx.stroke();
+  }
+  scoreEl.textContent=String(score);
+  bestEl.textContent='best '+best+' • misses '+misses;
+  if(!alive){
+    ctx.fillStyle='rgba(0,0,0,.55)'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#fff'; ctx.textAlign='center';
+    ctx.font='800 22px system-ui'; ctx.fillText('THE NIGHT WINS.', W/2, H*0.42);
+    ctx.font='600 14px system-ui'; ctx.fillText('Tap to try again', W/2, H*0.48);
+  }
+  requestAnimationFrame(loop);
+}
+reset(); requestAnimationFrame(loop);
+
+    </script>
+  </body>
+</html>
