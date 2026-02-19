@@ -157,6 +157,70 @@ export const getLatestFinishedRun = query({
   },
 })
 
+export const cleanupStaleRuns = mutation({
+  args: {
+    staleMs: v.optional(v.number()),
+    /** If true, uses updatedAt for staleness; otherwise uses startedAt. */
+    useUpdatedAt: v.optional(v.boolean()),
+  },
+  handler: async (ctx, { staleMs, useUpdatedAt }) => {
+    const now = Date.now()
+    const cutoff = now - (staleMs ?? 60 * 60 * 1000) // default: 60 minutes
+
+    const activeRuns = await ctx.db
+      .query('agentRuns')
+      .withIndex('by_state', (q) => q.eq('state', 'Running'))
+      .collect()
+
+    const stale = activeRuns.filter((r) => {
+      const t = useUpdatedAt ? (r.updatedAt ?? r.startedAt ?? 0) : (r.startedAt ?? 0)
+      return t > 0 && t < cutoff
+    })
+
+    let finished = 0
+    const touchedAgents = new Set<string>()
+
+    for (const r of stale) {
+      const mergedNote = [r.note, `Auto-finished (stale; >${Math.round((staleMs ?? 60 * 60 * 1000) / 60000)}m)`]
+        .filter(Boolean)
+        .join('\n')
+      await ctx.db.patch(r._id, {
+        state: 'Finished',
+        finishedAt: now,
+        note: mergedNote,
+        updatedAt: now,
+      })
+      finished++
+      touchedAgents.add(r.agentId)
+    }
+
+    // If an agent has no active runs left, fall back to Idle.
+    for (const agentId of touchedAgents) {
+      const stillActive = await ctx.db
+        .query('agentRuns')
+        .withIndex('by_agentId_state', (q) => q.eq('agentId', agentId).eq('state', 'Running'))
+        .take(1)
+
+      if (stillActive.length === 0) {
+        const agent = await ctx.db
+          .query('agents')
+          .withIndex('by_agentId', (q) => q.eq('agentId', agentId))
+          .unique()
+        if (agent) {
+          await ctx.db.patch(agent._id, {
+            status: 'Idle',
+            currentTaskTitle: undefined,
+            needsFromAlejandro: undefined,
+            updatedAt: now,
+          })
+        }
+      }
+    }
+
+    return { ok: true, finished, checked: activeRuns.length, cutoff }
+  },
+})
+
 export const listAgentDerivedState = query({
   args: {},
   handler: async (ctx) => {
