@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { GameCard } from '../components/GameCard'
 import type { Catalog, CatalogRow, GameCard as GameCardType, GameEraId, GameRowId } from '../lib/catalog'
-import { loadCatalog } from '../lib/catalog'
 
 function rowEmoji(row: GameRowId) {
   switch (row) {
@@ -68,29 +67,44 @@ function eraLabel(e: GameEraId) {
   }
 }
 
-export function Home({ onPlay }: { onPlay: (slug: string) => void }) {
-  const [catalog, setCatalog] = useState<Catalog | null>(null)
+export function Home({ catalog, onPlay }: { catalog: Catalog; onPlay: (slug: string) => void }) {
   const [error, setError] = useState<string | null>(null)
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
   const [era, setEra] = useState<GameEraId | 'all'>('all')
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
-    loadCatalog()
-      .then((c) => {
-        setCatalog(c)
-        const first = c.rows.flatMap((r) => r.games)[0]?.slug ?? null
-        setSelectedSlug((s) => s ?? first)
-      })
-      .catch((e) => setError(e?.message ?? String(e)))
-  }, [])
+    try {
+      const first = catalog.rows.flatMap((r) => r.games)[0]?.slug ?? null
+      setSelectedSlug((s) => s ?? first)
+    } catch (e) {
+      setError((e as any)?.message ?? String(e))
+    }
+  }, [catalog])
 
   const rows = useMemo(() => {
     const all = catalog?.rows ?? []
-    if (era === 'all') return all
-    return all
-      .map((r) => ({ ...r, games: r.games.filter((g) => (g.era ?? 'unknown') === era) }))
+    const q = query.trim().toLowerCase()
+
+    const match = (g: GameCardType) => {
+      if (!q) return true
+      const hay = `${g.title} ${g.oneLiner} ${g.source}`.toLowerCase()
+      return hay.includes(q)
+    }
+
+    const filteredEra =
+      era === 'all'
+        ? all
+        : all
+            .map((r) => ({ ...r, games: r.games.filter((g) => (g.era ?? 'unknown') === era) }))
+            .filter((r) => r.games.length > 0)
+
+    const filtered = filteredEra
+      .map((r) => ({ ...r, games: r.games.filter(match) }))
       .filter((r) => r.games.length > 0)
-  }, [catalog, era])
+
+    return filtered
+  }, [catalog, era, query])
 
   const selected: GameCardType | undefined = useMemo(() => {
     if (!catalog || !selectedSlug) return undefined
@@ -114,7 +128,17 @@ export function Home({ onPlay }: { onPlay: (slug: string) => void }) {
           <div className="ntag">Instant microgames • Public domain only</div>
         </div>
         <div className="ntopbarRight">
-          <div className="nsearchHint">Search (coming)</div>
+          <label className="nsearch" aria-label="Search games">
+            <input
+              className="nsearchInput"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search games…"
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
+            />
+          </label>
         </div>
       </header>
 

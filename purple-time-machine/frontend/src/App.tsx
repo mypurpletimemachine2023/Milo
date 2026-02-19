@@ -32,6 +32,7 @@ export default function App() {
   return (
     <>
       <Home
+        catalog={catalog}
         onPlay={(s) => {
           setUrlForSlug(s)
           setSlug(s)
