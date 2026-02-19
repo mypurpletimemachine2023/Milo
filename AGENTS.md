@@ -242,6 +242,17 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 - **`.jsonl.lock` can be held by the gateway itself.** Scripts that read session transcripts can fail with a lock timeout; a soft restart may not clear it—may require stopping the gateway, removing the lock, then starting again (destructive-ish → confirm first).
 - **Watch for non-ASCII terminal flags.** A pasted `ls -ла` (Cyrillic) produced an “invalid option” error; stick to plain `-la`.
 
+## Learnings – 2026-02-19
+
+- **Mission Control needs realtime truth.** Use Convex tables (`tasks`, `taskActivity`, `agentRuns`) as the source of truth; avoid falling back to markdown task lists except as deprecated legacy.
+- **Agent visualization requires explicit “runs.”** Don’t infer “working” from vibes—start/finish `agentRuns` (manual or subagent) so Office/Team are honest, and put idle agents physically in the break room.
+- **Keep agent IDs stable across systems.** OpenClaw config agent ids must match Milo Ops roster ids; renaming display names is fine, breaking ids causes silent UI/queue bugs.
+- **Next.js App Router gotcha:** don’t use `useSearchParams()` in a prerendered page without Suspense; prefer server `searchParams` → pass to a client component.
+- **Next dev lock + ports are a recurring footgun.** `next dev` can leave `.next/dev/lock` and “EADDRINUSE” confusion; kill the old process and remove the lock before restarting.
+- **Browser tool can flake; have a fallback screenshot path.** When CDP/browser-control dies, use `puppeteer-core` + system Chrome via a local script (`tools/screenshot_url.js`) to capture screenshots reliably.
+- **Session locks can be held by the gateway.** If a `.jsonl.lock` is held by `openclaw-gateway`, restart the gateway, remove the lock, then rerun the script.
+- **Autopilot needs cron, not prompts.** Use a dispatcher cron (e.g., every 15 min) to seed queue-tagged tasks and start runs for idle agents; add nightly “factory” crons per revenue line.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
