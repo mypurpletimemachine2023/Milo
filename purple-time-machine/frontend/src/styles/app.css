@@ -81,15 +81,33 @@ body{margin:0;background:#05060a;color:#eaeaea;font-family:ui-sans-serif,system-
 .ncardShade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.70))}
 .ncardTitle{position:absolute;left:12px;right:12px;bottom:10px;font-weight:950;font-size:13px;line-height:1.1;text-shadow: 0 8px 28px rgba(0,0,0,.8)}
 
-/* player overlay (kept) */
+/* player overlay (Netflix-ish, mobile-first) */
 .playerOverlay{position:fixed;inset:0;background:rgba(0,0,0,.70);display:flex;flex-direction:column;z-index:60}
-.playerHeader{display:flex;align-items:center;justify-content:space-between;padding:12px 12px;background:rgba(5,6,10,.92);border-bottom:1px solid rgba(255,255,255,.10)}
-.playerTitle{font-weight:900}
-.playerClose{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:8px 10px;cursor:pointer}
+.playerHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top)) 12px 10px;
+  background:rgba(5,6,10,.92);border-bottom:1px solid rgba(255,255,255,.10)
+}
+.playerBack{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:8px 10px;cursor:pointer;font-weight:900;white-space:nowrap}
+.playerBack:hover{border-color:rgba(255,255,255,.28)}
+.playerTitle{font-weight:950;flex:1;min-width:0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.playerHeaderRight{display:flex;align-items:center;gap:8px}
+.playerLink{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:8px 10px;text-decoration:none;font-weight:900;white-space:nowrap}
+.playerLink:hover{border-color:rgba(255,255,255,.28)}
+.playerClose{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:8px 10px;cursor:pointer;font-weight:900;white-space:nowrap}
+.playerClose:hover{border-color:rgba(255,255,255,.28)}
 .playerFrame{flex:1;border:0;background:#000}
-.playerEmpty{flex:1;display:grid;place-items:center;padding:24px}
-.playerEmptyTitle{font-weight:950;font-size:18px;margin-bottom:6px}
-.playerEmptySub{opacity:.7;font-size:12px;max-width:420px;text-align:center}
+.playerEmpty{flex:1;display:grid;place-items:center;padding:24px;gap:10px;text-align:center}
+.playerEmptyTitle{font-weight:950;font-size:18px;margin-bottom:0}
+.playerEmptySub{opacity:.7;font-size:12px;max-width:420px;margin:0 auto}
+.playerEmptyActions{margin-top:6px}
+
+.playerBottom{display:none;gap:10px;align-items:center;justify-content:space-between;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(5,6,10,.92);border-top:1px solid rgba(255,255,255,.10)
+}
+.playerBottomBtn{flex:1;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:12px 12px;cursor:pointer;font-weight:950;text-decoration:none;text-align:center}
+.playerBottomPrimary{background:#e50914;border-color:#e50914}
+
 .error{margin:12px auto;max-width:1200px;padding:12px 18px;border:1px solid rgba(255,80,80,.35);background:rgba(255,80,80,.08);border-radius:12px}
 
 @media (max-width: 900px){
@@ -97,4 +115,9 @@ body{margin:0;background:#05060a;color:#eaeaea;font-family:ui-sans-serif,system-
   .nheroTitle{font-size:28px}
   .nheroFrame{transform:scale(.92)}
   .ncardCoverWrap{width:220px}
+
+  /* On phones: keep quit/back "thumb reachable" at bottom */
+  .playerHeaderRight .playerLink{display:none}
+  .playerBottom{display:flex}
+  .playerTitle{text-align:left}
 }
