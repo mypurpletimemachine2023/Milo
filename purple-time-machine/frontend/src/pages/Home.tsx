@@ -125,7 +125,7 @@ export function Home({ catalog, onPlay }: { catalog: Catalog; onPlay: (slug: str
       <header className="ntopbar">
         <div className="ntopbarLeft">
           <div className="nbrand">MY PURPLE TIME MACHINE</div>
-          <div className="ntag">Instant microgames • Public domain only</div>
+          <div className="ntag">Instant microgames</div>
         </div>
         <div className="ntopbarRight">
           <label className="nsearch" aria-label="Search games">

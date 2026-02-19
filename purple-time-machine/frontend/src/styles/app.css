@@ -1,51 +1,62 @@
 :root{color-scheme:dark;}
 *{box-sizing:border-box}
-body{margin:0;background:#05060a;color:#eaeaea;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+body{margin:0;background:#000;color:#fff;font-family:Cinzel, "Times New Roman", Times, serif}
+
+:root{
+  --bg: #000;
+  --panel: rgba(255,255,255,.04);
+  --panel2: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.10);
+  --border2: rgba(255,255,255,.16);
+  --textDim: rgba(255,255,255,.72);
+  --gold: #d4af37;
+  --gold2: rgba(212,175,55,.28);
+}
 
 /* --- Netflix-ish layout --- */
 .napp{min-height:100vh}
 
 .ntopbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;
-  backdrop-filter:blur(12px);
-  background:linear-gradient(180deg,rgba(5,6,10,.90),rgba(5,6,10,.60));
-  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.72));
+  border-bottom:1px solid var(--border);
 }
-.nbrand{font-weight:900;letter-spacing:.08em}
-.ntag{opacity:.72;font-size:12px;margin-top:2px}
+.nbrand{font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.ntag{opacity:.72;font-size:12px;margin-top:2px;color:var(--textDim);font-family:"Times New Roman",Times,serif}
 .nsearch{display:flex;align-items:center}
-.nsearchInput{width:180px;max-width:48vw;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;border-radius:999px;padding:9px 12px;font-weight:800;font-size:12px;outline:none}
+.nsearchInput{width:190px;max-width:52vw;border:1px solid var(--border2);background:rgba(255,255,255,.03);color:#fff;border-radius:999px;padding:9px 12px;font-weight:700;font-size:12px;outline:none;font-family:"Times New Roman",Times,serif}
 .nsearchInput::placeholder{opacity:.55}
-.nsearchInput:focus{border-color:rgba(124,58,237,.85)}
+.nsearchInput:focus{border-color:var(--gold)}
 
 /* era picker (MVP step A: pick a time) */
 .nera{display:flex;gap:12px;align-items:center;padding:10px 18px;max-width:1200px;margin:0 auto}
-.neraLabel{font-size:12px;font-weight:900;letter-spacing:.04em;opacity:.78}
+.neraLabel{font-size:12px;font-weight:900;letter-spacing:.08em;opacity:.82}
 .neraChips{display:flex;gap:8px;overflow:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
-.neraChip{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;border-radius:999px;padding:8px 12px;font-weight:900;font-size:12px;cursor:pointer;white-space:nowrap}
-.neraChip:hover{border-color:rgba(255,255,255,.24)}
-.neraChipOn{border-color:rgba(124,58,237,.85);background:rgba(124,58,237,.22)}
+.neraChip{border:1px solid var(--border2);background:rgba(255,255,255,.03);color:#fff;border-radius:999px;padding:8px 12px;font-weight:800;font-size:12px;cursor:pointer;white-space:nowrap}
+.neraChip:hover{border-color:rgba(255,255,255,.28)}
+.neraChipOn{border-color:var(--gold);background:var(--gold2)}
 
 /* hero */
 .nhero{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08)}
 .nheroBg{position:absolute;inset:-30px;background:
-  radial-gradient(1000px 500px at 20% 20%, rgba(124,58,237,.40), transparent 60%),
-  radial-gradient(900px 520px at 80% 20%, rgba(220,38,38,.18), transparent 60%),
-  radial-gradient(800px 500px at 60% 80%, rgba(59,130,246,.14), transparent 60%),
-  linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.55));
-  filter:saturate(1.05);
+  radial-gradient(900px 520px at 25% 15%, rgba(212,175,55,.22), transparent 60%),
+  radial-gradient(900px 520px at 75% 15%, rgba(255,255,255,.08), transparent 62%),
+  radial-gradient(800px 500px at 60% 85%, rgba(212,175,55,.10), transparent 65%),
+  linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.72));
+  filter:saturate(1.02) contrast(1.04);
 }
 .nheroInner{position:relative;display:grid;grid-template-columns: 1.1fr .9fr;gap:18px;align-items:stretch;padding:22px 18px 18px;max-width:1200px;margin:0 auto}
 
 .nheroKicker{opacity:.7;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.nheroTitle{font-weight:950;font-size:34px;line-height:1.06;margin-top:6px}
-.nheroLine{opacity:.85;font-size:14px;line-height:1.35;margin-top:10px;max-width:52ch}
-.nheroSource{opacity:.6;font-size:12px;margin-top:10px;max-width:60ch}
+.nheroTitle{font-weight:900;font-size:34px;line-height:1.06;margin-top:6px;letter-spacing:.02em}
+.nheroLine{opacity:.86;font-size:14px;line-height:1.35;margin-top:10px;max-width:52ch;color:rgba(255,255,255,.86);font-family:"Times New Roman",Times,serif}
+.nheroSource{opacity:.62;font-size:12px;margin-top:10px;max-width:60ch;color:var(--textDim);font-family:"Times New Roman",Times,serif}
 
 .nheroBtns{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
-.nbtn{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}
-.nbtn:hover{border-color:rgba(255,255,255,.26)}
-.nbtnPrimary{background:#e50914;border-color:#e50914}
-.nbtnPrimary:hover{filter:brightness(1.05)}
+.nbtn{border:1px solid var(--border2);background:rgba(255,255,255,.04);color:#fff;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}
+.nbtn:hover{border-color:rgba(255,255,255,.28)}
+.nbtnPrimary{background:linear-gradient(180deg, rgba(212,175,55,.95), rgba(156,120,20,.95));border-color:rgba(212,175,55,.85);color:#000}
+.nbtnPrimary:hover{filter:brightness(1.04)}
 
 .nheroPreview{display:flex;align-items:center;justify-content:center}
 .nheroFrameWrap{position:relative;width:100%;max-width:520px;aspect-ratio: 16/10;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
@@ -62,7 +73,7 @@ body{margin:0;background:#05060a;color:#eaeaea;font-family:ui-sans-serif,system-
 /* rows */
 .nrows{padding:8px 0 56px}
 .nrow{margin:14px 0 26px}
-.nrowTitle{margin:0 auto 10px;max-width:1200px;padding:0 18px;font-size:15px;letter-spacing:.02em;text-transform:uppercase;opacity:.92;display:flex;align-items:center;gap:8px}
+.nrowTitle{margin:0 auto 10px;max-width:1200px;padding:0 18px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:.88;display:flex;align-items:center;gap:8px}
 .nrowEmoji{filter:saturate(1.2)}
 .nrowRail{display:flex;gap:10px;overflow:auto;padding:0 18px 10px;scrollbar-width:thin;scroll-snap-type:x mandatory}
 .nrowItem{scroll-snap-align:start}
@@ -70,13 +81,13 @@ body{margin:0;background:#05060a;color:#eaeaea;font-family:ui-sans-serif,system-
 
 /* cards */
 .ncard{border:0;background:transparent;padding:0;cursor:pointer;text-align:left;transform:translateZ(0)}
-.ncard:focus-visible{outline:3px solid rgba(229,9,20,.85);outline-offset:4px;border-radius:14px}
+.ncard:focus-visible{outline:3px solid rgba(212,175,55,.85);outline-offset:4px;border-radius:14px}
 .ncardCoverWrap{position:relative;width:260px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
   background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
   transition: transform .12s ease, border-color .12s ease;
 }
 .ncard:hover .ncardCoverWrap{transform:scale(1.05);border-color:rgba(255,255,255,.22)}
-.ncardSelected .ncardCoverWrap{border-color:rgba(229,9,20,.75)}
+.ncardSelected .ncardCoverWrap{border-color:rgba(212,175,55,.85)}
 .ncardCover{width:100%;height:100%;object-fit:cover;display:block}
 .ncardShade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.70))}
 .ncardTitle{position:absolute;left:12px;right:12px;bottom:10px;font-weight:950;font-size:13px;line-height:1.1;text-shadow: 0 8px 28px rgba(0,0,0,.8)}
