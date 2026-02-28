@@ -1,17 +1,18 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.1.30",
-    "lastTouchedAt": "2026-02-02T18:21:41.950Z"
+    "lastTouchedVersion": "2026.2.17",
+    "lastTouchedAt": "2026-02-26T00:16:56.017Z"
   },
   "env": {
     "vars": {
-      "GEMINI_API_KEY": "AIzaSyBOwPYJQVyZNjMH7bRJfCqTbr_toD3QQgI"
+      "GEMINI_API_KEY": "AIzaSyBOwPYJQVyZNjMH7bRJfCqTbr_toD3QQgI",
+      "OLLAMA_API_KEY": "ollama-local"
     }
   },
   "wizard": {
-    "lastRunAt": "2026-02-02T18:21:41.930Z",
-    "lastRunVersion": "2026.1.30",
-    "lastRunCommand": "onboard",
+    "lastRunAt": "2026-02-18T05:11:11.997Z",
+    "lastRunVersion": "2026.2.17",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
   "browser": {
@@ -40,7 +41,10 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai-codex/gpt-5.2"
+        "primary": "openai-codex/gpt-5.2",
+        "fallbacks": [
+          "ollama/llama3.1:8b"
+        ]
       },
       "models": {
         "openai-codex/gpt-5.2": {
@@ -49,16 +53,153 @@
         "google/gemini-3-flash-preview": {
           "alias": "gemini-flash"
         },
-        "openai-codex/gpt-5.1": {}
+        "openai-codex/gpt-5.1": {},
+        "ollama/llama3.1:8b": {
+          "alias": "ollama-llama3.1:8b"
+        }
       },
       "workspace": "/home/lejandro/.openclaw/workspace",
-      "maxConcurrent": 4,
-      "subagents": {
-        "maxConcurrent": 8
-      },
       "heartbeat": {
         "every": "1h"
+      },
+      "maxConcurrent": 8,
+      "subagents": {
+        "maxConcurrent": 16
       }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "Milo (Main)",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
+      },
+      {
+        "id": "builder",
+        "name": "Sara (Builder)",
+        "identity": {
+          "name": "Sara",
+          "theme": "builder monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "integrator",
+        "name": "Lisa (Integrator)",
+        "identity": {
+          "name": "Lisa",
+          "theme": "integrator monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "scriptwriter",
+        "name": "Stephanie (Scriptwriter)",
+        "identity": {
+          "name": "Stephanie",
+          "theme": "writer monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "editor",
+        "name": "Vero (Editor)",
+        "identity": {
+          "name": "Vero",
+          "theme": "editor monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "cover-artist",
+        "name": "Maria (Cover Artist)",
+        "identity": {
+          "name": "Maria",
+          "theme": "artist monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "ui-designer",
+        "name": "Amy (UI Designer)",
+        "identity": {
+          "name": "Amy",
+          "theme": "ui monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "qa-tester",
+        "name": "Nina (QA Tester)",
+        "identity": {
+          "name": "Nina",
+          "theme": "qa tester monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "ebook-agent",
+        "name": "Kayla (Ebook Agent)",
+        "identity": {
+          "name": "Kayla",
+          "theme": "ebook writer monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "website-agent",
+        "name": "Tiffany (Website Agent)",
+        "identity": {
+          "name": "Tiffany",
+          "theme": "website deploy monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "scraper-agent",
+        "name": "Jackie (Scraper Agent)",
+        "identity": {
+          "name": "Jackie",
+          "theme": "scraper monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "ops-automator",
+        "name": "Oscar (Ops Automator)",
+        "identity": {
+          "name": "Oscar",
+          "theme": "ops automator monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "researcher",
+        "name": "Priya (Researcher)",
+        "identity": {
+          "name": "Priya",
+          "theme": "research monkey",
+          "emoji": "🙈"
+        }
+      },
+      {
+        "id": "kdp-producer",
+        "name": "Ben (KDP Producer)",
+        "identity": {
+          "name": "Ben",
+          "theme": "kdp producer monkey",
+          "emoji": "🙈"
+        }
+      }
+    ]
+  },
+  "tools": {
+    "agentToAgent": {
+      "enabled": true
     }
   },
   "messages": {
@@ -66,7 +207,8 @@
   },
   "commands": {
     "native": "auto",
-    "nativeSkills": "auto"
+    "nativeSkills": "auto",
+    "restart": true
   },
   "hooks": {
     "internal": {
@@ -99,7 +241,7 @@
     "bind": "loopback",
     "auth": {
       "mode": "token",
-      "token": "110d…TED) (REDACTED)"
+      "token": "f2a8…TED) (REDACTED)"
     },
     "tailscale": {
       "mode": "off",
@@ -119,6 +261,9 @@
   "plugins": {
     "entries": {
       "telegram": {
+        "enabled": true
+      },
+      "google-antigravity-auth": {
         "enabled": true
       }
     }

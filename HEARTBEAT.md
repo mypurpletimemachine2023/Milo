@@ -1,5 +1,7 @@
 # HEARTBEAT.md
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+# Keep this small (<20 lines). Heartbeat = quick health + save-game checks.
 
-# Add tasks below when you want the agent to check something periodically.
+- Check `memory/active-tasks.md` for stale items; if anything is stuck, surface the blocker.
+- Check running sessions health (zombie subagents / crashes).
+- Every ~4h: quick self-review: did we ship anything? if not, why?
