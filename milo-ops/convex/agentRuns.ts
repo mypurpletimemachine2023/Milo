@@ -165,7 +165,7 @@ export const cleanupStaleRuns = mutation({
   },
   handler: async (ctx, { staleMs, useUpdatedAt }) => {
     const now = Date.now()
-    const cutoff = now - (staleMs ?? 60 * 60 * 1000) // default: 60 minutes
+    const cutoff = now - (staleMs ?? 60 * 60 * 1000) // default: 60 minutes (policy: only auto-finish Running)
 
     const activeRuns = await ctx.db
       .query('agentRuns')

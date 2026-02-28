@@ -161,7 +161,7 @@ async function startRunsForIdleAgents() {
 
 async function main() {
   // Keep truth clean before we derive state / start new work.
-  // Default: treat runs as stale if they haven't updated in 60 minutes.
+  // Policy: stale if no update in 60 minutes.
   await client.mutation('agentRuns:cleanupStaleRuns', { staleMs: 60 * 60 * 1000, useUpdatedAt: true })
 
   await ensureSeedTasks()
