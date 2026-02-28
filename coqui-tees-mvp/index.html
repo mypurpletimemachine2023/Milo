@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coqui Tees Orlando — Custom DTG + Sublimation</title>
+  <meta name="description" content="Orlando-based custom t-shirts. DTG + sublimation. Made in-house. AI-assisted design or we do it for you." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#f7f7f7;
+      --text:#0b0b0b;
+      --muted:#333;
+      --mint:#0050f0; /* PR flag blue */
+      --pink:#ed0000; /* PR flag red */
+      --shadow:0 10px 26px rgba(0,0,0,.10);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(900px 520px at 20% 0%, rgba(0,80,240,.10), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(237,0,0,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:20px}
+    .top{
+      position:sticky;top:0;z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      padding:12px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--mint),var(--pink));box-shadow:var(--shadow)}
+    .name{font-weight:950;letter-spacing:.2px}
+    .sub{display:block;font-size:12px;color:rgba(234,255,255,.75);font-weight:750;margin-top:2px}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:900;border:1px solid rgba(0,0,0,.12);background:#ffffff}
+    .btn:hover{background:rgba(255,255,255,.10)}
+    .btn-mint{border:none;background:linear-gradient(135deg,var(--mint),#003fc0);color:#ffffff}
+    .btn-pink{border:none;background:linear-gradient(135deg,var(--pink),#b10000);color:#ffffff}
+
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:stretch;margin-top:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.10);border-radius:18px;box-shadow:var(--shadow)}
+    .pad{padding:18px}
+    h1{font-size:40px;line-height:1.05;margin:10px 0}
+    @media (max-width:520px){h1{font-size:34px}}
+    .lede{color:rgba(234,255,255,.76);margin:0 0 14px}
+
+    .kicker{display:inline-flex;gap:10px;align-items:center;color:rgba(234,255,255,.75);font-weight:950;font-size:12px;letter-spacing:.35px;text-transform:uppercase}
+    .dot{width:10px;height:10px;border-radius:50%;background:#27d17f;box-shadow:0 0 0 6px rgba(39,209,127,.12)}
+
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{font-weight:900;font-size:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);padding:8px 10px;border-radius:999px}
+
+    .hr{height:1px;background:rgba(0,0,0,.10);margin:16px 0}
+
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:900px){.steps{grid-template-columns:1fr}}
+
+    .s h3{margin:0 0 8px;font-size:16px}
+    .s p{margin:0;color:rgba(234,255,255,.72);font-size:14px}
+
+    label{display:block;font-weight:900;margin-bottom:6px;font-size:12px;color:rgba(0,0,0,.75)}
+    input,textarea,select{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.14);background:#ffffff;color:var(--text);outline:none}
+    textarea{min-height:90px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:520px){.row{grid-template-columns:1fr}}
+    .small{font-size:12px;color:rgba(234,255,255,.70)}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a class="brand" href="#top">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div class="name">Coqui Tees Orlando</div>
+        <span class="sub">Custom shirts • DTG + sublimation • made in-house</span>
+      </div>
+    </a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+      <a class="btn btn-mint" href="#design">Design with AI</a>
+      <a class="btn btn-pink" href="#quote">Get a quote</a>
+    </div>
+  </div>
+
+  <main class="container" id="top">
+    <section class="grid">
+      <div class="card"><div class="pad">
+        <div class="kicker"><span class="dot"></span> Fast proofs • clean prints • no outsourcing</div>
+        <h1>Get any custom t‑shirt made in Orlando.</h1>
+        <p class="lede">DTG + sublimation. You can design it with our AI-assisted flow or send your logo and we’ll handle everything end‑to‑end.</p>
+
+        <div class="badges">
+          <div class="badge">🖨️ DTG</div>
+          <div class="badge">🌈 Sublimation</div>
+          <div class="badge">🧵 Made in-house</div>
+          <div class="badge">⚡ Fast turnaround</div>
+        </div>
+
+        <div class="hr"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <a class="btn btn-mint" href="#design">Start: AI design</a>
+          <a class="btn" href="#quote">Start: quote form</a>
+        </div>
+      </div></div>
+
+      <aside class="card"><div class="pad">
+        <h2 style="margin:0 0 10px">Two ways to order (MVP)</h2>
+        <p class="lede" style="margin-bottom:12px">Pick your lane. We’ll tighten this into a full ecommerce flow (WooCommerce) next.</p>
+
+        <div class="hr"></div>
+
+        <div class="steps">
+          <div class="card s"><div class="pad">
+            <h3>1) Design</h3>
+            <p>Use AI-assisted prompts or upload a logo.</p>
+          </div></div>
+          <div class="card s"><div class="pad">
+            <h3>2) Proof</h3>
+            <p>We send a proof + confirm print method.</p>
+          </div></div>
+          <div class="card s"><div class="pad">
+            <h3>3) Print</h3>
+            <p>We print locally and deliver/pickup.</p>
+          </div></div>
+        </div>
+
+        <div class="hr"></div>
+        <a class="btn btn-pink" style="width:100%" href="#quote">Get a quote now</a>
+        <div class="small" style="margin-top:10px">MVP note: these forms don’t send yet; we’ll wire to SMS/email + payments.</div>
+      </div></aside>
+    </section>
+
+    <section class="card" id="design" style="margin-top:16px"><div class="pad">
+      <h2 style="margin:0 0 10px">AI-assisted design (MVP)</h2>
+      <p class="lede">Tell us what you want. The full version will generate/edit designs and create print-ready specs.</p>
+
+      <form method="post" action="#">
+        <div class="row">
+          <div>
+            <label for="d_style">Style</label>
+            <select id="d_style" name="d_style">
+              <option>Minimal / clean</option>
+              <option>Bold / streetwear</option>
+              <option>Vintage / distressed</option>
+              <option>Business / uniform</option>
+              <option>Event / team</option>
+            </select>
+          </div>
+          <div>
+            <label for="d_shirt">Shirt type</label>
+            <select id="d_shirt" name="d_shirt">
+              <option>Unisex tee</option>
+              <option>Women’s tee</option>
+              <option>Youth tee</option>
+              <option>Hoodie</option>
+              <option>Long sleeve</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label for="d_colors">Colors</label>
+            <input id="d_colors" name="d_colors" placeholder="Black shirt, mint/pink ink…" />
+          </div>
+          <div>
+            <label for="d_qty">Quantity</label>
+            <input id="d_qty" name="d_qty" placeholder="e.g., 12" />
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <label for="d_idea">Describe your shirt idea</label>
+          <textarea id="d_idea" name="d_idea" placeholder="Example: 'A coqui frog wearing sunglasses, Miami vibe, front left chest + big back print'..."></textarea>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-mint" type="submit">Generate concept</button>
+          <a class="btn" href="#quote">Skip AI → quote form</a>
+        </div>
+        <p class="small" style="margin-top:10px">MVP: placeholder only. Next step: wire to Gemini + file upload + proof approval.</p>
+      </form>
+    </div></section>
+
+    <section class="card" id="quote" style="margin-top:16px"><div class="pad">
+      <h2 style="margin:0 0 10px">Quote request (MVP)</h2>
+      <p class="lede">Send details. We’ll confirm method (DTG vs sublimation), turnaround, and pricing.</p>
+
+      <form method="post" action="#">
+        <div class="row">
+          <div>
+            <label for="q_name">Name</label>
+            <input id="q_name" name="q_name" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="q_contact">Phone / email</label>
+            <input id="q_contact" name="q_contact" placeholder="(###) ###-#### or email" />
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label for="q_deadline">Need-by date</label>
+            <input id="q_deadline" name="q_deadline" placeholder="e.g., Friday" />
+          </div>
+          <div>
+            <label for="q_method">Preferred method</label>
+            <select id="q_method" name="q_method">
+              <option>Not sure (recommend)</option>
+              <option>DTG</option>
+              <option>Sublimation</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <label for="q_notes">Notes</label>
+          <textarea id="q_notes" name="q_notes" placeholder="Sizes, placements, number of colors, any logo details..."></textarea>
+        </div>
+        <div style="margin-top:12px">
+          <button class="btn btn-pink" type="submit">Request quote</button>
+          <span class="small" style="margin-left:10px">MVP: no backend yet.</span>
+        </div>
+      </form>
+    </div></section>
+
+    <footer class="container" style="padding-top:26px;padding-bottom:40px">
+      <div class="hr"></div>
+      <div class="small">© <span id="y"></span> Coqui Tees Orlando • MVP landing page</div>
+    </footer>
+  </main>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

@@ -3,15 +3,51 @@
 **/dist/
 **/build/
 **/.vite/
+**/.next/
+**/.turbo/
 
 # OS
 .DS_Store
 
-# OpenClaw (never commit real credentials)
+# Logs
+**/*.log
+
+# Local env
+**/.env
+**/.env.*
+
+# OpenClaw / local runtime (never commit real credentials)
 # (We only commit backups/openclaw.redacted.json)
 **/openclaw.json
 **/*allowFrom.json
 **/*pairing.json
+.openclaw/
+.local/
+media/
+
+# Workspace backups/artifacts
+backups/*.bak
+backups/openclaw.config.*.json
+backups/openclaw.json.*
+previews/
+
+# Huge local tool dumps / scratch (keep out of git)
+/tools/
+
+# Broken/experimental workspace checkout
+/mission-control/
+
+# Embedded repos / separate projects (don’t commit into workspace repo)
+/vendor/llama.cpp/
+/veteran-lock-and-safe-website/
+
+# Convex local
+**/.convex/
+
+# Lockfiles (keep project lockfiles; ignore root lockfiles if this is a workspace umbrella)
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
 
 # DB journaling
 **/*.db-journal

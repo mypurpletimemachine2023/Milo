@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alex the Locksmith — Book + Kits</title>
+  <meta name="description" content="A locksmith’s love letter to the trade. Book 1: exposing scammers + locksmith 101. Kits for pros and learners." />
+  <style>
+    :root{
+      --bg:#ffffff;--card:#f6f6f6;--text:#0b0b0b;--muted:#444;
+      --gold:#111111;--blue:#111111;--shadow:0 10px 26px rgba(0,0,0,.10);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial; background: var(--bg); color:var(--text); line-height:1.45}
+    a{color:inherit}
+    .container{max-width:1060px;margin:0 auto;padding:20px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.08);padding:12px 20px}
+    .brand{display:flex;gap:10px;align-items:center;text-decoration:none}
+    .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--gold));box-shadow:var(--shadow)}
+    .name{font-weight:900}
+    .sub{display:block;color:var(--muted);font-size:12px;font-weight:700}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:900;border:1px solid rgba(0,0,0,.12);background:#ffffff}
+    .btn:hover{background:rgba(255,255,255,.10)}
+    .btn-primary{border:none;background:#111111;color:#ffffff}
+    .btn-gold{border:none;background:#111111;color:#ffffff}
+
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch;margin-top:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.10);border-radius:18px;box-shadow:var(--shadow)}
+    .pad{padding:18px}
+    h1{font-size:40px;line-height:1.05;margin:10px 0}
+    @media (max-width:520px){h1{font-size:34px}}
+    .lede{color:var(--muted);margin:0 0 14px}
+    .kicker{display:inline-flex;gap:10px;align-items:center;color:var(--muted);font-weight:900;font-size:12px;letter-spacing:.35px;text-transform:uppercase}
+    .dot{width:10px;height:10px;border-radius:50%;background:#27d17f;box-shadow:0 0 0 6px rgba(39,209,127,.12)}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{font-weight:900;font-size:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);padding:8px 10px;border-radius:999px}
+    .hr{height:1px;background:rgba(0,0,0,.10);margin:16px 0}
+
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:900px){.products{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.products{grid-template-columns:1fr}}
+    .p h3{margin:0 0 8px;font-size:16px}
+    .p p{margin:0;color:var(--muted);font-size:14px}
+
+    label{display:block;font-weight:900;margin-bottom:6px;font-size:12px;color:rgba(0,0,0,.75)}
+    input,textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.14);background:#ffffff;color:var(--text);outline:none}
+    textarea{min-height:90px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:520px){.row{grid-template-columns:1fr}}
+    .small{font-size:12px;color:rgba(0,0,0,.65)}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a class="brand" href="#top">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div class="name">Alex the Locksmith</div>
+        <span class="sub">Book trilogy • kits • locksmith 101</span>
+      </div>
+    </a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+      <a class="btn btn-gold" href="#book">Get the book</a>
+      <a class="btn btn-primary" href="#kits">Shop kits</a>
+    </div>
+  </div>
+
+  <main class="container" id="top">
+    <section class="grid">
+      <div class="card"><div class="pad">
+        <div class="kicker"><span class="dot"></span> No fluff. No scams. Real trade talk.</div>
+        <h1>A locksmith’s love letter to the trade.</h1>
+        <p class="lede">Book 1 is about the scammers — how they operate, how to spot them, and how to protect your customers and your reputation. Plus the basics: the real locksmith 101.</p>
+        <div class="badges">
+          <div class="badge">📘 Book 1: Scammers</div>
+          <div class="badge">🔧 Locksmith 101</div>
+          <div class="badge">🧰 Kits for pros & learners</div>
+          <div class="badge">🧠 Hard-earned lessons</div>
+        </div>
+        <div class="hr"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <a class="btn btn-gold" href="#book">Start here: the book</a>
+          <a class="btn" href="#story">My story</a>
+        </div>
+      </div></div>
+
+      <aside class="card"><div class="pad">
+        <h2 style="margin:0 0 10px">Quick order links (MVP)</h2>
+        <p class="lede" style="margin-bottom:12px">These will become real checkout links. For now, this page collects interest + requests.</p>
+        <div class="hr"></div>
+        <div class="small">
+          <strong>Coming soon:</strong>
+          <ul>
+            <li>Car Lockout Kit</li>
+            <li>Residential Lockout Kit</li>
+            <li>Starter Lockpick Kit (education)</li>
+          </ul>
+        </div>
+        <div class="hr"></div>
+        <a class="btn btn-primary" style="width:100%" href="#notify">Get notified on launch</a>
+      </div></aside>
+    </section>
+
+    <section class="card" id="book" style="margin-top:16px"><div class="pad">
+      <h2 style="margin:0 0 10px">Book 1: The Scammers</h2>
+      <p class="lede">A field guide: what the scam looks like, how it spreads, and how legitimate locksmiths win by doing it right.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-gold" href="#notify">Preorder / notify me</a>
+        <a class="btn" href="#story">Read the origin story</a>
+      </div>
+      <p class="small" style="margin-top:10px">MVP note: when you’re ready, we’ll connect Stripe/Square and turn these into real buy buttons.</p>
+    </div></section>
+
+    <section class="card" id="kits" style="margin-top:16px"><div class="pad">
+      <h2 style="margin:0 0 10px">Kits</h2>
+      <div class="products">
+        <div class="card p"><div class="pad">
+          <h3>Car Lockout Kit</h3>
+          <p>Built for real work: the tools you reach for, not junk.</p>
+        </div></div>
+        <div class="card p"><div class="pad">
+          <h3>Residential Lockout Kit</h3>
+          <p>Essentials for common residential openings + clean entry.</p>
+        </div></div>
+        <div class="card p"><div class="pad">
+          <h3>Starter Kit (Education)</h3>
+          <p>For learning fundamentals responsibly (with rules + ethics).</p>
+        </div></div>
+      </div>
+      <div class="hr"></div>
+      <a class="btn btn-primary" href="#notify">Tell me what kit you want</a>
+    </div></section>
+
+    <section class="card" id="story" style="margin-top:16px"><div class="pad">
+      <h2 style="margin:0 0 10px">From rock bottom → running a company</h2>
+      <p class="lede">This trilogy is the honest version: mistakes, lessons, and the blueprint I wish I had when I started. It’s about building skill, character, and a real business.</p>
+    </div></section>
+
+    <section class="card" id="notify" style="margin-top:16px"><div class="pad">
+      <h2 style="margin:0 0 10px">Get notified (MVP)</h2>
+      <p class="lede">Drop your info and what you’re interested in. This form is a placeholder until we wire it to SMS/email + checkout.</p>
+      <form method="post" action="#">
+        <div class="row">
+          <div>
+            <label for="n_name">Name</label>
+            <input id="n_name" name="n_name" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="n_phone">Phone or email</label>
+            <input id="n_phone" name="n_phone" placeholder="(###) ###-#### or email" />
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <label for="n_interest">What do you want?</label>
+          <textarea id="n_interest" name="n_interest" placeholder="Book 1 / car kit / residential kit / starter kit / bulk order / speaking" ></textarea>
+        </div>
+        <div style="margin-top:12px">
+          <button class="btn btn-gold" type="submit">Submit</button>
+          <span class="small" style="margin-left:10px">MVP note: no backend yet.</span>
+        </div>
+      </form>
+    </div></section>
+
+    <footer class="container" style="padding-top:26px;padding-bottom:40px">
+      <div class="hr"></div>
+      <div class="small">© <span id="y"></span> Alex the Locksmith • Built as an MVP landing page</div>
+    </footer>
+  </main>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

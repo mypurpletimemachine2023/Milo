@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veteran Lock & Safe — MVP Preview</title>
+  <meta name="description" content="Mobile locksmith in Orlando. Calls first. Veteran discounts + free veteran t‑shirt program." />
+  <style>
+    :root{
+      --bg:#050505;
+      --card:#0d0d0d;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.72);
+      --brand:#e10600;
+      --brand2:#ffffff;
+      --ok:#27d17f;
+      --shadow:0 12px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(225,6,0,.18), transparent 60%),
+                  radial-gradient(1200px 600px at 80% 10%, rgba(255,255,255,.06), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:20px}
+    .topbar{position:sticky;top:0;z-index:20;backdrop-filter: blur(10px);background: rgba(11,18,32,.75);border-bottom: 1px solid rgba(255,255,255,.08)}
+    .topbar-inner{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:12px 20px;max-width:1080px;margin:0 auto}
+    .brand{display:flex;gap:10px;align-items:center;text-decoration:none}
+    .logo{width:40px;height:40px;border-radius:10px;background: linear-gradient(135deg, var(--brand), #7a0000);box-shadow: var(--shadow)}
+    .brand-name{font-weight:800;letter-spacing:.2px}
+    .brand-sub{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+    .ctas{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.06)}
+    .btn:hover{background: rgba(255,255,255,.10)}
+    .btn-primary{background: #ffffff; color:#0b0b0b; border: none;}
+    .btn-primary:hover{filter: brightness(1.02)}
+    .btn-gold{background: linear-gradient(135deg, var(--brand), #7a0000); color:#ffffff; border:none;}
+    .btn-gold:hover{filter: brightness(1.06)}
+    .btn-outline{background: transparent;}
+    .hero{padding:26px 0 14px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+    @media (max-width: 900px){.hero-grid{grid-template-columns:1fr}}
+    .h-card{background: rgba(16,26,47,.75);border:1px solid rgba(255,255,255,.10);border-radius:18px;box-shadow: var(--shadow)}
+    .h-card-pad{padding:18px}
+    .kicker{display:inline-flex;gap:10px;align-items:center;color:var(--muted);font-weight:800;font-size:12px;letter-spacing:.35px;text-transform:uppercase}
+    .kdot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 6px rgba(39,209,127,.12)}
+    h1{font-size:40px;line-height:1.05;margin:10px 0 10px}
+    @media (max-width: 520px){h1{font-size:34px}}
+    .lede{color:var(--muted);font-size:16px;margin:0 0 14px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{font-weight:800;font-size:12px;color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);padding:8px 10px;border-radius:999px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width: 520px){.grid2{grid-template-columns:1fr}}
+    .section{padding:16px 0}
+    .section h2{margin:0 0 10px;font-size:22px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width: 900px){.services{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 520px){.services{grid-template-columns:1fr}}
+    .card{padding:14px;border-radius:16px;background:rgba(16,26,47,.75);border:1px solid rgba(255,255,255,.10)}
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .callout{display:flex;gap:14px;align-items:flex-start}
+    .footer{padding:28px 0 40px;color:rgba(234,240,255,.70)}
+    .small{font-size:12px;color:rgba(234,240,255,.70)}
+    .hr{height:1px;background:rgba(255,255,255,.10);margin:16px 0}
+    .notice{border-left:4px solid var(--brand);padding:12px 14px;background:rgba(245,197,66,.10);border-radius:12px}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-name">Veteran Lock &amp; Safe</div>
+          <span class="brand-sub">Mobile locksmith • Orlando + 50 miles</span>
+        </div>
+      </a>
+      <div class="ctas">
+        <a class="btn btn-gold" href="#">Call 407-860-9524</a>
+        <a class="btn btn-primary" href="#booking">Request service</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="h-card"><div class="h-card-pad">
+          <div class="kicker"><span class="kdot"></span> Fast response. Clean work. No nonsense.</div>
+          <h1>Mobile locksmith in Orlando — residential, commercial, and car lockouts.</h1>
+          <p class="lede">Calls come first. Serving: Orlando, Kissimmee, St. Cloud, Apopka, Oviedo + surrounding areas.</p>
+          <div class="badges">
+            <div class="badge">✅ Licensed &amp; insured</div>
+            <div class="badge">🚗 Mobile service</div>
+            <div class="badge">🪖 Veteran discounts</div>
+            <div class="badge">🏈 Community sponsor</div>
+          </div>
+          <div class="hr"></div>
+          <div class="grid2">
+            <a class="btn btn-gold" style="width:100%" href="#">Tap to call</a>
+            <a class="btn btn-outline" style="width:100%" href="#areas">Service areas</a>
+          </div>
+        </div></div>
+
+        <aside class="h-card"><div class="h-card-pad">
+          <h2 style="margin:0 0 10px">Today’s availability</h2>
+          <p class="lede" style="margin-bottom:12px">Schedule dashboard for contract customers: <strong>dash.veteranlockandsafe.com</strong></p>
+          <div class="notice"><strong>Free veteran t‑shirt program</strong><div class="small">Ask about eligibility when you call. We also offer veteran discounts.</div></div>
+          <div class="hr"></div>
+          <div class="callout"><div style="font-size:18px">🏈</div><div><strong>Flag football league sponsor</strong><div class="small">Proud to support local youth sports and community programs.</div></div></div>
+        </div></aside>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <h2>Services</h2>
+      <div class="services">
+        <div class="card"><h3>Car lockouts</h3><p>Fast entry when keys are locked in the vehicle.</p></div>
+        <div class="card"><h3>Rekeys</h3><p>New keys, same locks.</p></div>
+        <div class="card"><h3>Lock repair &amp; replace</h3><p>Deadbolts, lever handles, smart locks.</p></div>
+        <div class="card"><h3>Residential lockouts</h3><p>Locked out? We’ll get you back in.</p></div>
+        <div class="card"><h3>Commercial service</h3><p>Storefronts, offices, basic access planning.</p></div>
+        <div class="card"><h3>Safes</h3><p>Basic service + evaluation.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="areas">
+      <h2>Service areas</h2>
+      <div class="card"><p style="margin:0;color:var(--muted)">Orlando • Kissimmee • Saint Cloud • Daytona Beach • Melbourne • Merritt Island • Apopka • Oviedo • surrounding areas.</p></div>
+    </section>
+
+    <section class="footer" id="booking">
+      <div class="hr"></div>
+      <div class="small">MVP preview only. Next: wire request form to SMS + email.</div>
+    </section>
+  </main>
+</body>
+</html>

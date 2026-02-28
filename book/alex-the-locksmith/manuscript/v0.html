@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Alejandro (Alex the Locksmith)" />
+  <meta name="dcterms.date" content="2026-02-14" />
+  <title>Alex the Locksmith</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Alex the Locksmith</h1>
+<p class="subtitle">How I Escaped a Scam, Learned the Trade, and Built a
+Real Business</p>
+<p class="author">Alejandro (Alex the Locksmith)</p>
+<p class="date">2026-02-14</p>
+</header>
+<h1 id="note-to-the-reader">Note to the reader</h1>
+<p>This is the <strong>v0 manuscript draft</strong> based on a first
+interview. A few dates, names, and links are intentionally left as
+placeholders until we confirm them.</p>
+<p>If you’ve ever been locked out, overcharged, or felt powerless in a
+stressful moment—this book is for you.</p>
+<hr />
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol type="1">
+<li>The Ad That Changed Everything</li>
+<li>The Scam I Didn’t See Coming</li>
+<li>Baptism by Fire</li>
+<li>Mt. Dora at 2AM</li>
+<li>Left Out to Dry</li>
+<li>Winter Park Roadside</li>
+<li>Being Superman for Five Minutes</li>
+<li>The Work That Actually Pays</li>
+<li>The 1% of Customers</li>
+<li>The Rules I Won’t Break</li>
+<li>The Pop‑A‑Lock Myth</li>
+<li>A Quick Home Security Audit</li>
+<li>What’s Next</li>
+</ol>
+<hr />
+<h1 id="the-ad-that-changed-everything">1. The Ad That Changed
+Everything</h1>
+<p>I started at rock bottom.</p>
+<p>Not in the dramatic movie way—more like the quiet kind of rock bottom
+where you’re job hunting, you’re broke, and you realize you don’t even
+trust your own plan anymore.</p>
+<p>I barely knew tools.</p>
+<p>I’d never used a drill. I could barely use a screwdriver. I wasn’t
+the “handy guy.” I wasn’t the “blue collar since birth” guy. I was just
+a guy trying to get a foothold.</p>
+<p>And then I answered a locksmith ad.</p>
+<p>At the time, it sounded simple: help people, unlock stuff, get paid,
+learn a trade.</p>
+<p>That ad didn’t just change my career. It changed how I look at people
+under pressure.</p>
+<hr />
+<h1 id="the-scam-i-didnt-see-coming">2. The Scam I Didn’t See
+Coming</h1>
+<p>I didn’t know it on day one, but I had stepped into a nationwide
+locksmith scam.</p>
+<p>Foreigners posing as locksmiths. Flooding Google with ads and fake
+pages. Dispatching whoever they could to show up fast, drill first, and
+charge as much as possible.</p>
+<p>The whole thing is built around one ugly truth:</p>
+<p>When you’re locked out, you’re not shopping. You’re panicking.</p>
+<p>And panic makes people easy to manipulate.</p>
+<p>I was thrown into the fire.</p>
+<p>At first I didn’t understand the playbook. I was just trying to do
+the job. But the longer I stayed, the more patterns I saw.</p>
+<ul>
+<li>They didn’t care about skill.</li>
+<li>They cared about speed.</li>
+<li>They cared about maximizing the ticket.</li>
+<li>And if something went wrong… you were on your own.</li>
+</ul>
+<hr />
+<h1 id="baptism-by-fire">3. Baptism by Fire</h1>
+<p>Locksmithing is one of those trades where you can’t fake competence
+for long.</p>
+<p>You either solve the problem… or you don’t.</p>
+<p>And unlike a lot of jobs, the customer is right there watching.</p>
+<p>Not just watching—<strong>needing</strong>.</p>
+<p>A lot of my early learning wasn’t gentle.</p>
+<p>It was:</p>
+<ul>
+<li>“Here’s the call. Go.”</li>
+<li>“Figure it out.”</li>
+<li>“Don’t make us look bad.”</li>
+</ul>
+<p>The scam company’s “training” wasn’t training.</p>
+<p>It was conditioning.</p>
+<p>I learned the difference later, when I got serious about the
+craft:</p>
+<blockquote>
+<p>A real locksmith tries to pick first and drill last.</p>
+</blockquote>
+<p>In the scam world, it was the opposite.</p>
+<blockquote>
+<p>“We don’t pay you to pick locks… we pay you to drill and charge as
+much as possible.”</p>
+</blockquote>
+<p>That line stuck with me—because it told me everything about who they
+were.</p>
+<hr />
+<h1 id="mt.-dora-at-2am">4. Mt. Dora at 2AM</h1>
+<p>There’s a job that’s burned into my memory because it taught me what
+this business can do to you.</p>
+<p>It was around 2AM in Mt. Dora.</p>
+<p>A homeowner was locked out. They were the rightful homeowner. I
+handled it the way I knew how at the time—I drilled and replaced the
+lock.</p>
+<p>Then the neighbors called the cops.</p>
+<p>I finished up and left.</p>
+<p>As I’m driving, I look up and see a helicopter and multiple police
+cars. My first thought was:</p>
+<p>“Somebody’s in trouble.”</p>
+<p>Then I got pulled over.</p>
+<p>Here’s the part people don’t expect:</p>
+<p>The cops were cool.</p>
+<p>They saw my business card. They saw the shirt I made. They
+understood.</p>
+<p>But I was freaked out anyway.</p>
+<p>Because I realized something I’d never really sat with before:</p>
+<p>If they weren’t cool, I could’ve been detained.</p>
+<p>And the scam company?</p>
+<p>They didn’t answer.</p>
+<p>No backup. No “we’ll handle it.” No support.</p>
+<p>Just silence.</p>
+<p>That night was the moment I stopped pretending the scam world was
+normal.</p>
+<hr />
+<h1 id="left-out-to-dry">5. Left Out to Dry</h1>
+<p>I felt left out to dry.</p>
+<p>That’s the only way to describe it.</p>
+<p>The company that sent me there didn’t care that I could’ve been
+arrested. They didn’t care that I was alone at night, dealing with
+police, trying to explain what I was doing.</p>
+<p>They cared about the transaction.</p>
+<p>Not the people.</p>
+<p>That’s the exact opposite of how locksmithing should work.</p>
+<p>So I started planning my exit.</p>
+<p>Not with some dramatic “I quit today” speech.</p>
+<p>With what I knew.</p>
+<p>I’ve made shirts for years.</p>
+<p>So I started making my own locksmith T‑shirts and uniforms.</p>
+<p>It sounds small, but it mattered.</p>
+<p>A uniform is identity.</p>
+<p>It’s also credibility.</p>
+<p>And for me, it was the first brick in building something real.</p>
+<hr />
+<h1 id="winter-park-roadside">6. Winter Park Roadside</h1>
+<p>Eventually I quit.</p>
+<p>And I started my own thing: <strong>Winter Park
+Roadside</strong>.</p>
+<p>At first it was simple: emergency lockouts.</p>
+<p>I was eager to learn.</p>
+<p>I was done being someone else’s disposable technician.</p>
+<p>I wanted to be a locksmith.</p>
+<p>A real one.</p>
+<p>There’s a marketing lesson I learned that I still believe:</p>
+<blockquote>
+<p>Naming your company after a city gives you an all‑time buff.</p>
+</blockquote>
+<p>I think in RPG terms sometimes.</p>
+<p>“Winter Park” was more than marketing.</p>
+<p>I graduated from Winter Park High School.</p>
+<p>It’s personal.</p>
+<p>The first logo/mascot was tied to that identity (tiger / wildcat —
+<strong>placeholder: confirm</strong>).</p>
+<p>And I made my early uniforms myself.</p>
+<p>Those first days were scrappy, but they were mine.</p>
+<hr />
+<h1 id="being-superman-for-five-minutes">7. Being Superman for Five
+Minutes</h1>
+<p>There’s a reason I love this work.</p>
+<p>It’s the moment you solve the problem.</p>
+<p>The moment someone goes from panic to relief.</p>
+<p>I call it:</p>
+<blockquote>
+<p>Being Superman for five minutes.</p>
+</blockquote>
+<p>A locksmith shows up when somebody’s day is falling apart.</p>
+<ul>
+<li>A mother locked out at night with her kid.</li>
+<li>A tired paramedic who just wants to get back in the truck.</li>
+<li>Someone escaping domestic violence.</li>
+<li>Someone dealing with dementia.</li>
+</ul>
+<p>Those are real moments.</p>
+<p>And if you’re the kind of person who can stay calm and treat people
+right in those moments—this job can make you proud.</p>
+<p>My rule is simple:</p>
+<p>Treat customers like you’d treat your own family.</p>
+<p>Like your mom.</p>
+<p>Like your grandma.</p>
+<hr />
+<h1 id="the-work-that-actually-pays">8. The Work That Actually Pays</h1>
+<p>People think locksmiths only open cars.</p>
+<p>That’s what the public sees.</p>
+<p>But the real business is broader.</p>
+<p>Here are my top services by revenue/frequency (from my experience so
+far):</p>
+<ol type="1">
+<li><strong>Safe lockouts</strong></li>
+<li><strong>House rekeys</strong></li>
+<li><strong>Commercial hardware installs</strong></li>
+<li><strong>House lockouts</strong></li>
+<li><strong>Car lockouts</strong></li>
+</ol>
+<p>That list surprises people.</p>
+<p>Safe work especially.</p>
+<p>(<strong>Placeholder for batch 2:</strong> what types of safes + most
+common failure modes.)</p>
+<hr />
+<h1 id="the-1-of-customers">9. The 1% of Customers</h1>
+<p>Most people are good.</p>
+<p>Most people are just stressed.</p>
+<p>But there’s a tiny slice—maybe 1%—that will test you.</p>
+<ul>
+<li>The overly paranoid customer who keeps calling you back for “safe
+issues” that are really user error.</li>
+<li>The ego‑tripping guy mad for no reason.</li>
+</ul>
+<p>Early on, I had moments where customers tried to bully me.</p>
+<p>One time a customer got mad about the price and went to get a bigger
+“homie”—a guy who towered over me.</p>
+<p>I stood firm.</p>
+<p>Because here’s the thing:</p>
+<p>My car wasn’t locked.</p>
+<p>I could leave.</p>
+<p>And I told him that.</p>
+<p>That wasn’t about being tough.</p>
+<p>That was about boundaries.</p>
+<p>And it was empowering.</p>
+<hr />
+<h1 id="the-rules-i-wont-break">10. The Rules I Won’t Break</h1>
+<p>I’m a flat-fee, upfront-pricing person.</p>
+<p>No surprises.</p>
+<p>No “we’ll see when we get there.”</p>
+<p>I also have ethics.</p>
+<ul>
+<li>Golden Rule: treat customers like family.</li>
+<li>Veterans get discounts—sometimes free services.</li>
+<li>Always try non‑destructive entry: <strong>pick first</strong>, drill
+last.</li>
+</ul>
+<p>If you want the shortest possible summary of my business:</p>
+<p>I’m building the locksmith company I wish showed up when I was
+learning.</p>
+<hr />
+<h1 id="the-popalock-myth">11. The Pop‑A‑Lock Myth</h1>
+<p>A lot of people think locksmiths only open cars.</p>
+<p>They’ll call you the “pop‑a‑lock man.”</p>
+<p>And honestly, I get why.</p>
+<p>Brands can get a stranglehold on the public’s vocabulary.</p>
+<p>Pop‑A‑Lock is so well known it becomes the default label—like how
+people call cotton swabs “Q‑tips.”</p>
+<p>But locksmithing is bigger than cars.</p>
+<p>Some locksmiths work on:</p>
+<ul>
+<li>prisons</li>
+<li>safes</li>
+<li>high‑end commercial systems</li>
+<li>specialty hardware</li>
+<li>even security cameras and access control</li>
+</ul>
+<p>And that’s why I care about education.</p>
+<p>Because when customers understand the trade, they get scammed
+less.</p>
+<hr />
+<h1 id="a-quick-home-security-audit">12. A Quick Home Security
+Audit</h1>
+<p>Most people think security is one big thing.</p>
+<p>It isn’t.</p>
+<p>It’s layers.</p>
+<p>Here’s a simple “multiple levels of security” checklist you can walk
+through:</p>
+<ol type="1">
+<li><strong>Doors</strong></li>
+</ol>
+<ul>
+<li>Reinforce strike plates (long screws into studs)</li>
+<li>Check deadbolt quality and alignment</li>
+<li>Consider upgrading to Grade 1/2 hardware where it matters</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Sliding glass doors</strong></li>
+</ol>
+<ul>
+<li>Add a secondary bar/rod</li>
+<li>Check the latch and track</li>
+<li>Add simple sensors if you want alerts</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Windows</strong></li>
+</ol>
+<ul>
+<li>Verify locks work</li>
+<li>Add pin locks for sliding windows</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Lighting</strong></li>
+</ol>
+<ul>
+<li>Motion lights outside entry points</li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Visibility</strong></li>
+</ol>
+<ul>
+<li>Trim bushes near windows/doors</li>
+<li>Keep hiding spots minimal</li>
+</ul>
+<ol start="6" type="1">
+<li><strong>Habits</strong></li>
+</ol>
+<ul>
+<li>Don’t broadcast travel plans publicly</li>
+<li>Don’t hide keys in obvious places</li>
+</ul>
+<p>(<strong>Placeholder:</strong> link to Alex’s pinned
+sliding-glass-door video.)</p>
+<hr />
+<h1 id="whats-next">13. What’s Next</h1>
+<p>This book is part story and part warning.</p>
+<p>Because I’ve seen the scam side.</p>
+<p>I’ve seen what happens when people are stressed and vulnerable.</p>
+<p>And I’ve seen what happens when a real locksmith shows up and treats
+them right.</p>
+<p>If you’re a customer: you deserve upfront pricing, respect, and
+options.</p>
+<p>If you’re a locksmith: you deserve to learn the craft the right
+way—without being trained to screw people.</p>
+<p>And if you’re building a business:</p>
+<p>Don’t build it on panic.</p>
+<p>Build it on trust.</p>
+<hr />
+<h2 id="batch-2-questions-to-finalize-v1">Batch 2 questions (to finalize
+v1)</h2>
+<ol type="1">
+<li>Confirm timeline: what year did you start, and when did Winter Park
+Roadside launch?</li>
+<li>Tiger vs wildcat mascot?</li>
+<li>Safe lockouts details: types + common failure modes.</li>
+<li>Pinned video link + social handles to include.</li>
+<li>Any specific scam call scripts/pricing tactics you want to expose
+(high level, not instructional).</li>
+</ol>
+</body>
+</html>

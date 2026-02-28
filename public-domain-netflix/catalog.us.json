@@ -1,0 +1,435 @@
+{
+  "catalogVersion": "2026-02-18",
+  "jurisdiction": "US",
+  "policy": {
+    "sourceCutoffYear": 1928,
+    "directRetellingOnly": true,
+    "translationRule": "Use only translations first published <= 1928 in the US (or otherwise confirmed US public domain).",
+    "connectiveTissueRule": "Allowed only for scene transitions/clarity; do not add plot events, new characters, or alternate endings."
+  },
+  "notes": [
+    "IMPORTANT: This file is a production plan, not legal advice.",
+    "Before publishing, verify each source edition/translation is US public domain and record a scan URL (Gutenberg/Internet Archive/HathiTrust/LOC) in sourceWorks[].sourceUrl.",
+    "Where a translation is required, pick a specific pre-1929 translation and lock it. Do not mix translations across episodes."
+  ],
+  "rows": [
+    {
+      "rowId": "tentpoles",
+      "label": "Tentpoles",
+      "order": 1
+    },
+    {
+      "rowId": "cosmic",
+      "label": "Cosmic Horror",
+      "order": 2
+    },
+    {
+      "rowId": "occult",
+      "label": "Occult & Ritual",
+      "order": 3
+    },
+    {
+      "rowId": "antiquarian",
+      "label": "Antiquarian Ghosts",
+      "order": 4
+    },
+    {
+      "rowId": "poe",
+      "label": "Poe: One Story Per Episode",
+      "order": 5
+    },
+    {
+      "rowId": "european",
+      "label": "European Decadence (Translation-locked)",
+      "order": 6
+    },
+    {
+      "rowId": "mythic",
+      "label": "Mythic Underworlds (Translation-locked)",
+      "order": 7
+    }
+  ],
+  "series": [
+    {
+      "seriesId": "dracula-blood-letters",
+      "title": "Dracula: Blood Letters",
+      "slug": "dracula-blood-letters",
+      "rowId": "tentpoles",
+      "tags": ["gothic", "vampire", "epistolary"],
+      "description": "A vampire hunt assembled from journals, letters, and telegrams.",
+      "sourceWorks": [
+        {
+          "sourceId": "stoker-dracula-1897",
+          "title": "Dracula",
+          "author": "Bram Stoker",
+          "publicationYear": 1897,
+          "editionNote": "Lock to a clearly-scanned US public domain edition.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 12}],
+      "episodes": [
+        {"episode": 1, "title": "The Solicitor", "mapsTo": "Ch. 1–4"},
+        {"episode": 2, "title": "Castle Rules", "mapsTo": "Ch. 5–7"},
+        {"episode": 3, "title": "The Escape", "mapsTo": "Ch. 8–9"},
+        {"episode": 4, "title": "Lucy", "mapsTo": "Ch. 10–12"},
+        {"episode": 5, "title": "Invitation", "mapsTo": "Ch. 13–15"},
+        {"episode": 6, "title": "The First Night", "mapsTo": "Ch. 16–17"},
+        {"episode": 7, "title": "The Patient", "mapsTo": "Ch. 18–19"},
+        {"episode": 8, "title": "Unclean", "mapsTo": "Ch. 20–21"},
+        {"episode": 9, "title": "The Boxes", "mapsTo": "Ch. 22–23"},
+        {"episode": 10, "title": "The Chase", "mapsTo": "Ch. 24–25"},
+        {"episode": 11, "title": "Snow & Wolves", "mapsTo": "Ch. 26–27"},
+        {"episode": 12, "title": "At the Castle", "mapsTo": "Ch. 28 + Notes"}
+      ],
+      "artPrompt": "1920s pulp horror poster, limited palette (purple/cream/black), woodcut texture, dramatic silhouette, no modern typography"
+    },
+    {
+      "seriesId": "frankenstein-prometheus",
+      "title": "Frankenstein: The Modern Prometheus",
+      "slug": "frankenstein-modern-prometheus",
+      "rowId": "tentpoles",
+      "tags": ["gothic", "mad-science", "tragedy"],
+      "description": "A creator learns the thing he made is the least monstrous part.",
+      "sourceWorks": [
+        {
+          "sourceId": "shelley-frankenstein-1818",
+          "title": "Frankenstein",
+          "author": "Mary Shelley",
+          "publicationYear": 1818,
+          "editionNote": "Choose 1818 or 1831 text and stick to it; both are PD. Document which one.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 10}],
+      "episodes": [
+        {"episode": 1, "title": "Walton", "mapsTo": "Letters"},
+        {"episode": 2, "title": "Genesis", "mapsTo": "Vol I"},
+        {"episode": 3, "title": "The Spark", "mapsTo": "Vol I"},
+        {"episode": 4, "title": "The Run", "mapsTo": "Vol I–II"},
+        {"episode": 5, "title": "The Cottage", "mapsTo": "Vol II"},
+        {"episode": 6, "title": "The Request", "mapsTo": "Vol II"},
+        {"episode": 7, "title": "The Second Making", "mapsTo": "Vol II"},
+        {"episode": 8, "title": "Vows", "mapsTo": "Vol III"},
+        {"episode": 9, "title": "The Wedding Night", "mapsTo": "Vol III"},
+        {"episode": 10, "title": "Ice", "mapsTo": "Vol III + Letters"}
+      ],
+      "artPrompt": "Victorian gothic engraving style, laboratory silhouettes, lightning motif, purple/cream/black, distressed paper"
+    },
+    {
+      "seriesId": "jekyll-hyde-divide",
+      "title": "Jekyll & Hyde: The Divide",
+      "slug": "jekyll-hyde-the-divide",
+      "rowId": "tentpoles",
+      "tags": ["gothic", "psychological", "double"],
+      "description": "Respectability is the mask; Hyde is the appetite.",
+      "sourceWorks": [
+        {
+          "sourceId": "stevenson-jekyll-hyde-1886",
+          "title": "Strange Case of Dr Jekyll and Mr Hyde",
+          "author": "Robert Louis Stevenson",
+          "publicationYear": 1886,
+          "editionNote": "Lock a PD scan edition; keep the structure (Utterson-led mystery) intact.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 8}],
+      "episodes": [
+        {"episode": 1, "title": "The Door", "mapsTo": "Story opening"},
+        {"episode": 2, "title": "Utterson", "mapsTo": "Early chapters"},
+        {"episode": 3, "title": "The Girl", "mapsTo": "Carew incident"},
+        {"episode": 4, "title": "The Letter", "mapsTo": "Lanyon + letter"},
+        {"episode": 5, "title": "The Cabinet", "mapsTo": "Jekyll’s absence"},
+        {"episode": 6, "title": "Lanyon", "mapsTo": "Lanyon narrative"},
+        {"episode": 7, "title": "Confession", "mapsTo": "Jekyll full statement"},
+        {"episode": 8, "title": "Hyde", "mapsTo": "Ending"}
+      ],
+      "artPrompt": "London fog, split-face silhouette motif, inkblot symmetry, purple/cream/black, vintage detective poster"
+    },
+    {
+      "seriesId": "phantom-beneath-stage",
+      "title": "Phantom of the Opera: Beneath the Stage",
+      "slug": "phantom-beneath-the-stage",
+      "rowId": "tentpoles",
+      "tags": ["gothic", "theatre", "obsession"],
+      "description": "A hidden genius turns love into captivity beneath a Paris opera house.",
+      "sourceWorks": [
+        {
+          "sourceId": "leroux-phantom-1910",
+          "title": "The Phantom of the Opera",
+          "author": "Gaston Leroux",
+          "publicationYear": 1910,
+          "editionNote": "Use a US PD English translation first published <= 1928; lock translator.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 10}],
+      "episodes": [
+        {"episode": 1, "title": "Box Five", "mapsTo": "Opening"},
+        {"episode": 2, "title": "The Voice", "mapsTo": "Early chapters"},
+        {"episode": 3, "title": "The Lake", "mapsTo": "Below"},
+        {"episode": 4, "title": "The Mask", "mapsTo": "Revelation"},
+        {"episode": 5, "title": "The Managers", "mapsTo": "Opera intrigue"},
+        {"episode": 6, "title": "The Trap", "mapsTo": "Threats"},
+        {"episode": 7, "title": "The Punjab Lasso", "mapsTo": "Backstory"},
+        {"episode": 8, "title": "The Torture Chamber", "mapsTo": "Set-piece"},
+        {"episode": 9, "title": "Choice", "mapsTo": "Climax"},
+        {"episode": 10, "title": "The End of the Song", "mapsTo": "Ending"}
+      ],
+      "artPrompt": "Art Nouveau opera poster, chandelier + mask iconography, purple/cream/black, ornate frame"
+    },
+    {
+      "seriesId": "carmilla-house-guest",
+      "title": "Carmilla: The House Guest",
+      "slug": "carmilla-the-house-guest",
+      "rowId": "tentpoles",
+      "tags": ["gothic", "vampire", "castle"],
+      "description": "A charming visitor arrives with a slow, intimate curse.",
+      "sourceWorks": [
+        {
+          "sourceId": "lefanu-carmilla-1872",
+          "title": "Carmilla",
+          "author": "Sheridan Le Fanu",
+          "publicationYear": 1872,
+          "editionNote": "Direct retelling; keep the framing and confession tone.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 8}],
+      "episodes": [
+        {"episode": 1, "title": "The Carriage", "mapsTo": "Opening"},
+        {"episode": 2, "title": "The Guest", "mapsTo": "Arrival"},
+        {"episode": 3, "title": "The Dream", "mapsTo": "Visitation"},
+        {"episode": 4, "title": "The Doctor", "mapsTo": "Investigation"},
+        {"episode": 5, "title": "The Portrait", "mapsTo": "Revelation"},
+        {"episode": 6, "title": "The General", "mapsTo": "Backstory"},
+        {"episode": 7, "title": "The Crypt", "mapsTo": "Hunt"},
+        {"episode": 8, "title": "Ashes", "mapsTo": "Ending"}
+      ],
+      "artPrompt": "Victorian gothic romance horror, moonlit castle, lace + fangs motif, purple/cream/black"
+    },
+    {
+      "seriesId": "dorian-portrait-sessions",
+      "title": "The Picture of Dorian Gray: Portrait Sessions",
+      "slug": "dorian-gray-portrait-sessions",
+      "rowId": "tentpoles",
+      "tags": ["decadence", "curse", "identity"],
+      "description": "A portrait records the truth while the man stays flawless.",
+      "sourceWorks": [
+        {
+          "sourceId": "wilde-dorian-1890",
+          "title": "The Picture of Dorian Gray",
+          "author": "Oscar Wilde",
+          "publicationYear": 1890,
+          "editionNote": "Lock to a PD text; decide 1890 magazine vs later book text and stick to it.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 10}],
+      "episodes": [
+        {"episode": 1, "title": "The Portrait", "mapsTo": "Ch. 1–2"},
+        {"episode": 2, "title": "The Wish", "mapsTo": "Ch. 2–3"},
+        {"episode": 3, "title": "Sibyl", "mapsTo": "Ch. 4–6"},
+        {"episode": 4, "title": "The Curtain", "mapsTo": "Ch. 7–8"},
+        {"episode": 5, "title": "The Book", "mapsTo": "Ch. 9–11"},
+        {"episode": 6, "title": "Rumors", "mapsTo": "Ch. 12–14"},
+        {"episode": 7, "title": "The Painter", "mapsTo": "Ch. 15"},
+        {"episode": 8, "title": "The Knife", "mapsTo": "Ch. 16–17"},
+        {"episode": 9, "title": "The Chase", "mapsTo": "Ch. 18"},
+        {"episode": 10, "title": "The Frame", "mapsTo": "Ch. 19–20"}
+      ],
+      "artPrompt": "Decadent fin-de-siècle poster, ornate frame, withered portrait shadow, purple/cream/black"
+    },
+    {
+      "seriesId": "moreau-island-experiments",
+      "title": "Doctor Moreau: Island Experiments",
+      "slug": "doctor-moreau-island-experiments",
+      "rowId": "tentpoles",
+      "tags": ["mad-science", "isolation", "body-horror"],
+      "description": "A shipwrecked man finds an island where ethics have been amputated.",
+      "sourceWorks": [
+        {
+          "sourceId": "wells-moreau-1896",
+          "title": "The Island of Doctor Moreau",
+          "author": "H. G. Wells",
+          "publicationYear": 1896,
+          "editionNote": "Use PD edition; keep the ‘Law’ section as written.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 10}],
+      "episodes": [
+        {"episode": 1, "title": "The Dinghy", "mapsTo": "Opening"},
+        {"episode": 2, "title": "The Compound", "mapsTo": "Arrival"},
+        {"episode": 3, "title": "The Beasts", "mapsTo": "First encounters"},
+        {"episode": 4, "title": "The Law", "mapsTo": "Law revealed"},
+        {"episode": 5, "title": "Surgery", "mapsTo": "Vivisection"},
+        {"episode": 6, "title": "Breakdown", "mapsTo": "Order collapses"},
+        {"episode": 7, "title": "The Hunt", "mapsTo": "Pursuit"},
+        {"episode": 8, "title": "The Return", "mapsTo": "Escape"},
+        {"episode": 9, "title": "Civilized", "mapsTo": "Aftermath"},
+        {"episode": 10, "title": "The Memory", "mapsTo": "Ending"}
+      ],
+      "artPrompt": "Pulp science-horror, jungle silhouettes, surgical tools motif, purple/cream/black"
+    },
+    {
+      "seriesId": "colour-out-of-space",
+      "title": "The Colour Out of Space",
+      "slug": "the-colour-out-of-space",
+      "rowId": "cosmic",
+      "tags": ["cosmic-horror", "isolation", "contamination"],
+      "description": "A meteor falls; the land learns a new kind of decay.",
+      "sourceWorks": [
+        {
+          "sourceId": "lovecraft-colour-1927",
+          "title": "The Colour Out of Space",
+          "author": "H. P. Lovecraft",
+          "publicationYear": 1927,
+          "editionNote": "Verify the specific magazine/print appearance used is US PD; lock that edition.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 1}],
+      "episodes": [{"episode": 1, "title": "The Blasted Heath", "mapsTo": "Full story"}],
+      "artPrompt": "Cosmic rural horror, impossible color glow (stylized), purple/cream/black, grainy halftone"
+    },
+    {
+      "seriesId": "mr-james-antiquarian-ghosts",
+      "title": "M.R. James: Antiquarian Ghosts",
+      "slug": "mr-james-antiquarian-ghosts",
+      "rowId": "antiquarian",
+      "tags": ["ghosts", "cursed-objects", "scholars"],
+      "description": "Each episode: a learned person touches the wrong relic.",
+      "sourceWorks": [
+        {
+          "sourceId": "james-collected-1895-1925",
+          "title": "Ghost stories (selected)",
+          "author": "M. R. James",
+          "publicationYear": 1895,
+          "editionNote": "Select story list from collections published <= 1928; cite per-episode source.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 12}],
+      "episodes": [
+        {"episode": 1, "title": "Oh, Whistle, and I’ll Come to You, My Lad", "mapsTo": "Story"},
+        {"episode": 2, "title": "Casting the Runes", "mapsTo": "Story"},
+        {"episode": 3, "title": "The Mezzotint", "mapsTo": "Story"},
+        {"episode": 4, "title": "Count Magnus", "mapsTo": "Story"},
+        {"episode": 5, "title": "The Ash-tree", "mapsTo": "Story"},
+        {"episode": 6, "title": "Lost Hearts", "mapsTo": "Story"},
+        {"episode": 7, "title": "Number 13", "mapsTo": "Story"},
+        {"episode": 8, "title": "A Warning to the Curious", "mapsTo": "Story"},
+        {"episode": 9, "title": "The Treasure of Abbot Thomas", "mapsTo": "Story"},
+        {"episode": 10, "title": "The Stalls of Barchester Cathedral", "mapsTo": "Story"},
+        {"episode": 11, "title": "The Tractate Middoth", "mapsTo": "Story"},
+        {"episode": 12, "title": "An Episode of Cathedral History", "mapsTo": "Story"}
+      ],
+      "artPrompt": "Antiquarian horror, manuscript margins + relic icons, purple/cream/black, subtle woodcut"
+    },
+    {
+      "seriesId": "poe-tales-of-terror",
+      "title": "Poe: Tales of Terror",
+      "slug": "poe-tales-of-terror",
+      "rowId": "poe",
+      "tags": ["psychological", "gothic", "short-stories"],
+      "description": "Confessions, doubles, premature burials—one classic per episode.",
+      "sourceWorks": [
+        {
+          "sourceId": "poe-stories-1830s-1840s",
+          "title": "Short stories (selected)",
+          "author": "Edgar Allan Poe",
+          "publicationYear": 1840,
+          "editionNote": "Use PD editions; cite story original publication per episode.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 16}],
+      "episodes": [
+        {"episode": 1, "title": "The Tell-Tale Heart", "mapsTo": "Story"},
+        {"episode": 2, "title": "The Black Cat", "mapsTo": "Story"},
+        {"episode": 3, "title": "The Fall of the House of Usher", "mapsTo": "Story"},
+        {"episode": 4, "title": "The Cask of Amontillado", "mapsTo": "Story"},
+        {"episode": 5, "title": "The Masque of the Red Death", "mapsTo": "Story"},
+        {"episode": 6, "title": "The Pit and the Pendulum", "mapsTo": "Story"},
+        {"episode": 7, "title": "Ligeia", "mapsTo": "Story"},
+        {"episode": 8, "title": "Berenice", "mapsTo": "Story"},
+        {"episode": 9, "title": "The Murders in the Rue Morgue", "mapsTo": "Story"},
+        {"episode": 10, "title": "The Imp of the Perverse", "mapsTo": "Story"},
+        {"episode": 11, "title": "The Premature Burial", "mapsTo": "Story"},
+        {"episode": 12, "title": "The Facts in the Case of M. Valdemar", "mapsTo": "Story"},
+        {"episode": 13, "title": "The Oval Portrait", "mapsTo": "Story"},
+        {"episode": 14, "title": "Morella", "mapsTo": "Story"},
+        {"episode": 15, "title": "William Wilson", "mapsTo": "Story"},
+        {"episode": 16, "title": "The Man of the Crowd", "mapsTo": "Story"}
+      ],
+      "artPrompt": "Gothic ink illustration, raven motifs, sharp contrast, purple/cream/black, vintage chapbook cover"
+    },
+    {
+      "seriesId": "king-in-yellow-selected",
+      "title": "The King in Yellow (Selected Stories)",
+      "slug": "the-king-in-yellow-selected",
+      "rowId": "occult",
+      "tags": ["decadence", "memetic-horror", "cursed-art"],
+      "description": "A play that ruins the people who read it.",
+      "sourceWorks": [
+        {
+          "sourceId": "chambers-king-in-yellow-1895",
+          "title": "The King in Yellow",
+          "author": "Robert W. Chambers",
+          "publicationYear": 1895,
+          "editionNote": "Retell only stories in the 1895 collection; cite which are used.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 10}],
+      "episodes": [
+        {"episode": 1, "title": "The Repairer of Reputations", "mapsTo": "Story"},
+        {"episode": 2, "title": "The Mask", "mapsTo": "Story"},
+        {"episode": 3, "title": "In the Court of the Dragon", "mapsTo": "Story"},
+        {"episode": 4, "title": "The Yellow Sign", "mapsTo": "Story"},
+        {"episode": 5, "title": "The Demoiselle d’Ys", "mapsTo": "Story"},
+        {"episode": 6, "title": "The Prophets’ Paradise", "mapsTo": "Story"},
+        {"episode": 7, "title": "Street of Our Lady of the Fields", "mapsTo": "Story"},
+        {"episode": 8, "title": "The Street of the Four Winds", "mapsTo": "Story"},
+        {"episode": 9, "title": "The Pure in Heart", "mapsTo": "Story"},
+        {"episode": 10, "title": "An Episode of Mr. Helmer", "mapsTo": "Story"}
+      ],
+      "artPrompt": "Decadent 1890s poster, masked figure + torn script pages, purple/cream/black, ornate border"
+    },
+    {
+      "seriesId": "inferno-circles",
+      "title": "Inferno: Circles",
+      "slug": "inferno-circles",
+      "rowId": "mythic",
+      "tags": ["underworld", "mythic", "moral-horror"],
+      "description": "A guided descent where every punishment is personalized.",
+      "sourceWorks": [
+        {
+          "sourceId": "dante-inferno-translation-pre1929",
+          "title": "Inferno (translation locked)",
+          "author": "Dante Alighieri",
+          "publicationYear": 1320,
+          "editionNote": "Pick a specific English translation first published <= 1928 (US PD) and lock it for the entire series.",
+          "sourceUrl": "TODO"
+        }
+      ],
+      "seasonPlan": [{"season": 1, "episodeCount": 12}],
+      "episodes": [
+        {"episode": 1, "title": "The Dark Wood", "mapsTo": "Cantos 1–3"},
+        {"episode": 2, "title": "The Gate", "mapsTo": "Cantos 3–5"},
+        {"episode": 3, "title": "Gluttony", "mapsTo": "Cantos 6–7"},
+        {"episode": 4, "title": "Violence", "mapsTo": "Cantos 11–12"},
+        {"episode": 5, "title": "The Wood of Suicides", "mapsTo": "Canto 13"},
+        {"episode": 6, "title": "Fraud", "mapsTo": "Selected cantos"},
+        {"episode": 7, "title": "The Thieves", "mapsTo": "Cantos 24–25"},
+        {"episode": 8, "title": "False Counsel", "mapsTo": "Cantos 26–27"},
+        {"episode": 9, "title": "Sowers of Discord", "mapsTo": "Canto 28"},
+        {"episode": 10, "title": "The Traitors", "mapsTo": "Cantos 32–33"},
+        {"episode": 11, "title": "Lucifer", "mapsTo": "Canto 34"},
+        {"episode": 12, "title": "Out", "mapsTo": "Egress + framing"}
+      ],
+      "artPrompt": "Medieval woodcut underworld, concentric circles map motif, purple/cream/black, aged parchment"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "agents": [
+    {
+      "id": "planner",
+      "name": "Planner",
+      "room": "break",
+      "status": "idle",
+      "progress": 0,
+      "updatedAt": 1770753798013
+    },
+    {
+      "id": "builder",
+      "name": "Builder",
+      "room": "break",
+      "status": "idle",
+      "progress": 0,
+      "updatedAt": 1770753798013
+    },
+    {
+      "id": "seo",
+      "name": "SEO",
+      "room": "break",
+      "status": "idle",
+      "progress": 0,
+      "updatedAt": 1770753798013
+    },
+    {
+      "id": "copy",
+      "name": "Copywriter",
+      "room": "break",
+      "status": "idle",
+      "progress": 0,
+      "updatedAt": 1770753798013
+    },
+    {
+      "id": "ops",
+      "name": "Ops",
+      "room": "break",
+      "status": "idle",
+      "progress": 0,
+      "updatedAt": 1770753798013
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_587621f5a8369_19c4926af7d",
+      "title": "Example: Write homepage hero copy",
+      "details": "Keep it call/text first. Use (407) 860-9524.",
+      "status": "queued",
+      "createdAt": 1770753798013,
+      "updatedAt": 1770753798013
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "artifact_7297bedc97011_19c4926af7d",
+      "title": "Welcome artifact",
+      "body": "This is where agent outputs land. Click an artifact to view it.",
+      "createdAt": 1770753798013
+    }
+  ]
+}

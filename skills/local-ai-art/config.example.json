@@ -1,0 +1,19 @@
+{
+  "provider": "openai",
+  "openai": {
+    "model": "gpt-image-1",
+    "size": "1024x576",
+    "quality": "high"
+  },
+  "style": {
+    "brand": "MY PURPLE TIME MACHINE",
+    "look": "modern premium streaming key art, cinematic photoreal look, dramatic rim lighting, shallow depth of field, high detail, moody atmosphere, no logos, no text in the image",
+    "negative": "watermark, logo, signature, text, words, letters, ui, screenshot"
+  },
+  "projects": {
+    "purple-time-machine": {
+      "catalogPath": "./purple-time-machine/catalog.json",
+      "coversDir": "./purple-time-machine/frontend/public/covers"
+    }
+  }
+}
