@@ -1,23 +1,24 @@
-# SECURITY.md (Milo)
+# SECURITY (Operational Checklist)
 
-## Current posture (intended)
-- Control UI: **local-only** (loopback bind)
-- Telegram DM access: **pairing/allowlist** (only approved users)
-- No customer PII stored (until Alex explicitly enables)
-- Backups:
-  - Local git auto-commit every 30 minutes
-  - Daily tar snapshot to Windows: `/mnt/c/Backups/MILO/`
+## Non-negotiables
+- **No secrets in git.** Use `.env` + `.gitignore` + GitHub Secrets.
+- Assume anything pasted into chat is burned.
+- Prefer least-privilege accounts (separate automation accounts).
 
-## Secrets handling
-- Never commit raw secrets (bot tokens, API keys, gateway token) into git.
-- If a config snapshot is needed, commit **redacted** only:
-  - `backups/openclaw.redacted.json`
+## Credential storage
+- Local dev: environment variables, not source code.
+- CI/deploy: GitHub Actions Secrets.
+- Rotate immediately if leaked.
 
-## Approval gates (hard rules)
-- Ads/spend: must be explicitly approved by Alex.
-- Customer-impacting policy/pricing/scripts: must be explicitly approved by Alex.
-- Outbound customer messaging: do not automate until a specific workflow is defined.
-- **Elevated (sudo/root) actions:** disabled by default. Only perform if Alex explicitly requests it for a specific task.
+## Email automation (Proton)
+- Use **Proton Bridge**; never store Proton account password.
+- Store Bridge SMTP creds in local env vars on the host running the mailer.
 
-## Operational notes
-- If remote access is ever enabled (Cloudflare/Tailscale/reverse proxy), configure trusted proxies / access controls first.
+## Web automation
+- Avoid brittle UI automation for core ops.
+- If browser automation is required, use an attached relay tab and do not store passwords.
+
+## Customer data
+- Collect minimum necessary data.
+- Restrict access to job photos/addresses.
+- Keep audit logs for edits to jobs/invoices.
