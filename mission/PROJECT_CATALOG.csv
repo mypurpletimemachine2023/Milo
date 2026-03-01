@@ -1,0 +1,37 @@
+ID,Brand/Area,Project,Outcome,1-Week MVP Deliverable,Stack,PD/IP Hook (optional),Monetization,Priority,Status
+01,ATL,Locksmith 101 Knowledge Hub,"Searchable free articles + categories + CTA to kits","Next.js site w/ 20 starter articles (markdown) + SEO","Next.js","PD lock history excerpts (verified)","kit sales + email list",P0,planned
+02,VLS,Contract Closeout Wizard,"Faster closeouts (photos + WO + quote + email pack)","CLI tool: organize job folder → generate PDF pack",Python,,"saves labor time",P0,planned
+03,ATL,“Bench Test” Simulator,"Gamified training checklist","Web checklist + scoring + printable cert","Next.js",,"upsell course/kit",P0,planned
+04,ATL,Lock ID Flashcards,"Learn cylinders/keys/parts","Web flashcards + spaced repetition","Next.js","PD diagrams only if verified","subscription tier",P1,planned
+05,ATL,"Beginner Lockpicking Mini-Game (Legal/Edu)","Engagement landing hook","Simple browser minigame + discount code","HTML/TS",,"kit discounts, sales",P1,planned
+06,VLS,Work Order + Quote PDF Generator,"Clean PDFs from form input","Web form → PDF output + email template","Next.js + PDF",,ops,P0,planned
+07,Federal,Locksmith Directory MVP,"List vetted locksmiths + filters + badge","Directory CRUD + “Apply” form","Next.js + DB",,"lead gen + sponsorship",P1,planned
+08,Federal,“Authority Badge” Generator,"Brand trust widget","Badge embed script + verification page","JS + API",,"paid listings",P1,planned
+09,ATL,Kit Builder Configurator,"Choose tools → recommend kit","Wizard + SKU output","Next.js",,upsell,P1,planned
+10,VLS,Photo Annotator Tool,"Markup photos for reports","Local web app: drag/drop + annotate","Electron/Next",,ops,P2,idea
+11,ATL,Email Funnel Generator,"Auto sequences for kits/books","Templates + mail-merge CSV exporter",Python,,marketing,P1,planned
+12,ATL,“Locksmith Stories” Blog Pipeline,"Turn notes into posts","CLI: notes → markdown drafts + tags",Python,,audience growth,P1,planned
+13,VLS,Service Area Landing Pages Factory,"SEO pages at scale","Generator creates city pages from template","Node/Python",,leads,P1,planned
+14,VLS,Job Tracker Web App Lite,"Replace spreadsheets","CRUD jobs + statuses + export","Next.js + SQLite",,ops,P1,planned
+15,ATL,Tool Inventory + Bag Checklist,"Know what’s in the van","Mobile-friendly checklist + QR labels","Next.js",,subscription,P2,idea
+16,Federal,“Request a Locksmith” Intake,"Standardize leads","Form → email + CRM CSV","Next.js",,"lead routing",P1,planned
+17,Coqui,Mockup Generator,"Faster apparel previews","Upload design → mockups batch render",Python,"CC0 mockup bases",sales,P1,planned
+18,Coqui,Product Listing Composer,"TikTok/Shopify descriptions","Generate titles/tags/bullets from input","Node/Python",,productivity,P2,idea
+19,Coqui,Order Tracker Dashboard,"Track orders + ETA","Minimal dashboard + CSV import","Next.js",,ops,P2,idea
+20,KOD,Card Database + Builder,"Manage card content cleanly","CRUD cards + export JSON","Next.js + DB",,"dev velocity",P1,planned
+21,KOD,Flavor Text Citation Helper,"Attach sources to card lore","Form to store verse/source refs","Next.js","public domain Bible translations only (verified)",quality,P2,idea
+22,ATL,“Ask Alex” FAQ Chat UI (non-LLM fallback),"Quick answers from articles","Search + suggested answers (no hallucination)","Next.js",,"reduce support",P2,idea
+23,VLS,Estimate Calculator (Doors/Locks),"Faster quotes","Web calculator + printable estimate","Next.js",,speed,P1,planned
+24,VLS,Vendor Pricebook Importer,"Price updates without pain","CSV import + margin rules + export",Python,,ops,P2,idea
+25,Federal,Vetting Checklist + Scoring,"Rank locksmith listings","Scoring rubric + review form","Next.js",,trust,P1,planned
+26,ATL,“Lock Anatomy” Interactive Diagram,"Education hook","SVG interactive parts labeling","Next.js","only PD/CC0 diagrams",upsell training,P2,idea
+27,Lab,PDF Form Template Library,"Reusable PDFs","Collection of PDF templates + generator",Python,,ops,P1,planned
+28,Lab,Image → Clean SVG (for vinyl),"Faster merch assets","CLI using potrace-like flow",Python,,merch speed,P2,idea
+29,Lab,Repo Template: “Claw Starter”,"Rapid new projects","Starter w/ CI, lint, deploy","TS",,accelerates,P1,planned
+30,VLS,Security Hardening Checklist App,"Better internal security","Web checklist + reminders","Next.js",,cyber upsell,P2,idea
+31,Federal,Content Engine: “Access Control 101”,"Authority in niche","30 article skeletons + SEO","Next.js","PD standards excerpts ONLY if legal",leads,P2,idea
+32,ATL,Local Lead Heatmap (manual input),"Visualize where calls come from","Map w/ pins from CSV","Next.js",,ops,P2,idea
+33,ATL,“Kit Coupon Codes by Gameplay”,"Gamified store discounts","Simple points → coupon generator","Next.js",,conversion,P2,idea
+34,Lab,WSL Dev Doctor,"Stop environment breakage","Script checks node/python/dotnet/git/ssh","Bash",,reliability,P0,in_progress
+35,VLS,Email Packager (County),"One command sends closeout email","CLI builds email body + attachments list",Python,,ops,P0,planned
+36,ATL,Locksmith Glossary + Pronunciation,"Better SEO + learning","Glossary pages + audio stub","Next.js","PD terms ok",traffic,P2,idea
