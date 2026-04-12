@@ -1,17 +1,27 @@
-# Node
-**/node_modules/
-**/dist/
-**/build/
-**/.vite/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# OS
-.DS_Store
+# dependencies
+/node_modules
 
-# OpenClaw (never commit real credentials)
-# (We only commit backups/openclaw.redacted.json)
-**/openclaw.json
-**/*allowFrom.json
-**/*pairing.json
+# next.js
+/.next/
+/out/
 
-# DB journaling
-**/*.db-journal
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
