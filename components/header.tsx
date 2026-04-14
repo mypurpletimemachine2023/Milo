@@ -27,34 +27,34 @@ export function Header() {
       <div className="flex items-center justify-between transition-all duration-300 px-2 pl-5 py-2">
         {/* Logo */}
         <Link href="#hero" className="text-lg font-bold tracking-tight transition-colors duration-300">
-          <span className="text-coqui-blue">CO</span>
+          <span className="text-black">CO</span>
           <span className="text-foreground">Q</span>
-          <span className="text-coqui-red">UI</span>
+          <span className="text-black">UI</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-10 md:flex">
           <Link
             href="#technology"
-            className="text-sm transition-colors text-muted-foreground hover:text-foreground"
+            className="text-sm transition-colors text-black hover:text-foreground"
           >
             Design
           </Link>
           <Link
             href="#gallery"
-            className="text-sm transition-colors text-muted-foreground hover:text-foreground"
+            className="text-sm transition-colors text-black hover:text-foreground"
           >
             Gallery
           </Link>
           <Link
             href="#accessories"
-            className="text-sm transition-colors text-muted-foreground hover:text-foreground"
+            className="text-sm transition-colors text-black hover:text-foreground"
           >
             Models
           </Link>
           <Link
             href="#about"
-            className="text-sm transition-colors text-muted-foreground hover:text-foreground"
+            className="text-sm transition-colors text-black hover:text-foreground"
           >
             About
           </Link>
@@ -64,7 +64,7 @@ export function Header() {
         <div className="hidden items-center gap-6 md:flex">
           <Link
             href="#reserve"
-            className="px-4 py-2 text-sm font-medium transition-all rounded-full bg-gradient-to-r from-coqui-blue to-coqui-red text-white hover:opacity-80"
+            className="px-4 py-2 text-sm font-medium transition-all rounded-full bg-black text-white hover:opacity-80"
           >
             Contact
           </Link>
